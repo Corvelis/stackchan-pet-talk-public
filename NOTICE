@@ -1,0 +1,8 @@
+stackchan-talk
+Copyright 2026 stackchan-talk contributors
+
+This product is licensed under the Apache License, Version 2.0.
+
+This repository currently contains only Flutter application source and
+project documentation. Model files, SDKs, and prebuilt native binaries are
+not bundled in this repository at this stage.
