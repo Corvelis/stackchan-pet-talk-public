@@ -50,16 +50,16 @@ app.*.map.json
 /android/app/release
 
 # Local model, SDK, and native binary drops are intentionally not versioned.
-models/
-model/
-sdk/
-sdks/
-artifacts/
-prebuilt/
-prebuilts/
-third_party/prebuilt/
-third_party/prebuilts/
-vendor/
+/models/
+/model/
+/sdk/
+/sdks/
+/artifacts/
+/prebuilt/
+/prebuilts/
+/third_party/prebuilt/
+/third_party/prebuilts/
+/vendor/
 
 # ML model files
 *.bin
@@ -85,9 +85,9 @@ vendor/
 *.jar
 
 # Local runtime data
-downloads/
-runtime_data/
-conversation_history/
+/downloads/
+/runtime_data/
+/conversation_history/
 *.sqlite
 *.sqlite3
 *.db
