@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>StackChan Pet Talk Privacy Policy</title>
+</head>
+<body>
+<pre>
+# Privacy
+
+`StackChan Pet Talk` is a local-first Stack-chan conversation app for limited
+beta distribution.
+
+## Local Processing
+
+When local providers are selected and their bundled models are available, the
+following features run on device:
+
+- ReazonSpeech ASR and Silero VAD
+- Piper Plus TTS
+- llama.cpp local LLM
+- LiteRT-LM local LLM
+- Face master recognition with OpenCV YuNet/SFace
+- Voice master recognition with CAM++ speaker embeddings
+
+Master recognition stores embeddings in app settings. It is intended only for
+character interaction. It is not authentication, login, or access control.
+
+## External APIs
+
+If the user configures an external provider, the app may send relevant text,
+audio-derived transcription input, prompts, conversation history, and optional
+image input to that provider.
+
+External providers currently exposed by settings include:
+
+- OpenAI compatible LLM API
+- OpenAI LLM API
+- Gemini API
+- OpenAI transcription APIs
+- OpenAI TTS API
+- Irodori TTS server
+
+Users should only enter API keys for providers they trust and should review
+those providers' terms and privacy policies.
+When an Irodori TTS server is used, the app sends text to synthesize, the
+selected voice name, and optionally uploaded reference audio to the configured
+server.
+
+## Camera and Microphone
+
+The app uses Stack-chan camera and microphone data for conversation, ASR, TTS
+coordination, and optional master recognition.
+
+- Face enrollment captures an image, extracts an embedding, and stores the
+  embedding. Captured images are temporary implementation data and are not
+  intended as persistent user records.
+- Voice enrollment collects speech samples, extracts an averaged speaker
+  embedding, and stores the embedding. Raw voice audio is not intended to be
+  stored as a persistent user record.
+- VLM fallback may pass a captured image to the selected LLM provider when the
+  user enables that path and asks a visual question.
+
+## Background Conversation
+
+On supported Android builds, background conversation uses a foreground service.
+It may request notification permission and battery optimization exemption so
+conversation can continue while the app is not in the foreground.
+
+## Conversation History and Settings
+
+The app keeps lightweight conversation history in memory for the current
+session and uses saved settings for providers, prompts, recognition thresholds,
+and model paths. API keys are stored through secure storage where supported.
+
+## Bundled Models
+
+Limited beta builds may bundle model, dictionary, and runtime files listed in
+`distribution/model_manifest.yaml`. The in-app Licenses screen lists bundled
+model and runtime notices.
+</pre>
+</body>
+</html>
