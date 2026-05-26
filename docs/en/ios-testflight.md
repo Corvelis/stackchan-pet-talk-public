@@ -29,19 +29,7 @@ Permissions that may be used:
 
 Follow [Getting Started](getting-started.md) to connect to the Stack-chan device.
 
-## 6. Send Feedback
-
-Please report bugs, connection failures, unclear screens, or unexpected behavior through TestFlight feedback or the contact method shared by the distributor.
-
-Useful details:
-
-- iPhone model
-- iOS version
-- Connection mode: SoftAP / Wi-Fi IP
-- What you were doing
-- Error messages or screenshots
-
-## 7. TestFlight Notes
+## 6. TestFlight Notes
 
 TestFlight is Apple's beta distribution system. This is not a production release, so bugs, crashes, behavior changes, and beta expiration may occur.
 
