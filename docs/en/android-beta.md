@@ -57,19 +57,6 @@ Compatible firmware:
 
 https://github.com/Corvelis/stackchan-pet-fw
 
-## What to Test on Android
-
-- App installation and launch
-- SoftAP / Wi-Fi IP connection to Stack-chan
-- Text conversation
-- Voice input through the microphone button
-- Piper Plus speech output
-- Local LLM conversation with LiteRT-LM / Gemma 4 E2B
-- Model file picker behavior
-- Crashes, heat, and performance differences across Android devices
-
-The developer mainly tests on Xiaomi 15 Ultra. Feedback from other Android devices is especially useful.
-
 ## Permissions and Notes
 
 The app may request permissions depending on which features you use.
@@ -80,19 +67,6 @@ The app may request permissions depending on which features you use.
 - Notifications: used when Android background conversation is enabled
 
 Android battery management varies by manufacturer. If background conversation stops unexpectedly, check battery optimization and background restriction settings on the device.
-
-## Feedback
-
-Please report bugs or unexpected behavior through the contact method shared by the distributor.
-
-Useful details:
-
-- Android device model
-- Android version
-- Connection mode: SoftAP / Wi-Fi IP
-- What you were doing
-- Error messages or screenshots
-- LLM/TTS model file names used
 
 ## Google Play Testing Notes
 
