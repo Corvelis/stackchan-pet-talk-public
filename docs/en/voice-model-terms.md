@@ -28,6 +28,7 @@ When using a Tsukuyomi-chan voice model, do not use generated voice for the foll
 - Publishing the generated voice in a way that permits others to reuse it as source material.
 
 The definition of criticizing or attacking people follows the Tsukuyomi-chan character license.
+(https://play.google.com/store/apps/details?id=app.stackchan.pet.talk)
 
 Distribution or sale as an appreciation/listening work is not prohibited by the Tsukuyomi-chan terms themselves. However, always check the conditions for the selected voice model, publication platform, and distribution format.
 
