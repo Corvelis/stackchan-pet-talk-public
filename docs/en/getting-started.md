@@ -26,9 +26,10 @@ The developer mainly tests with:
 
 For iPhone:
 
-1. Install the TestFlight app.
-2. Open the shared TestFlight link.
-3. Install `StackChan Pet Talk`.
+1. Open [iPhone / TestFlight Beta](ios-testflight.md).
+2. Install the TestFlight app.
+3. Open the shared TestFlight link.
+4. Install `StackChan Pet Talk`.
 
 For Android:
 

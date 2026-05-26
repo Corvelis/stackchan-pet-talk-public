@@ -26,9 +26,10 @@ https://github.com/Corvelis/stackchan-pet-fw
 
 iPhone の場合:
 
-1. TestFlight アプリをインストールします。
-2. 配布された TestFlight リンクを開きます。
-3. `StackChan Pet Talk` をインストールします。
+1. [iPhone / TestFlight 参加方法](ios-testflight.md) を開きます。
+2. TestFlight アプリをインストールします。
+3. 配布された TestFlight リンクを開きます。
+4. `StackChan Pet Talk` をインストールします。
 
 Android の場合:
 
