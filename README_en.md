@@ -45,16 +45,6 @@ Compatible firmware:
 
 https://github.com/Corvelis/stackchan-pet-fw
 
-## What to Test
-
-- Connecting to the Stack-chan device
-- Moving from setup to the conversation screen after connection
-- Text conversation
-- Voice conversation through speech recognition
-- Speech output from Stack-chan
-- Character and conversation settings
-- Any connection failures or unexpected behavior
-
 ## Developer Test Devices
 
 The developer mainly tests with:
