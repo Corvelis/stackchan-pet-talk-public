@@ -64,9 +64,3 @@ conversation can continue while the app is not in the foreground.
 The app keeps lightweight conversation history in memory for the current
 session and uses saved settings for providers, prompts, recognition thresholds,
 and model paths. API keys are stored through secure storage where supported.
-
-## Bundled Models
-
-Limited beta builds may bundle model, dictionary, and runtime files listed in
-`distribution/model_manifest.yaml`. The in-app Licenses screen lists bundled
-model and runtime notices.
