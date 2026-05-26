@@ -14,6 +14,10 @@ TestFlight または Google Play クローズドテストで配布される限�
 - Stack-chan 側の WebSocket サーバー
 - 会話に使う LLM。OpenAI / Gemini / OpenAI compatible API、またはローカル LLM を選びます。
 
+Stack-chan 側の対応ファームウェアは、以下の Releases から入手できます。
+
+https://github.com/Corvelis/stackchan-pet-fw/releases
+
 音声や画像機能を使う場合に必要:
 
 - Stack-chan マイク音声の binary WebSocket 送信。アプリは `SCM1` または `MIC1` ヘッダー付き PCM16 を想定します。

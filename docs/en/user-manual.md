@@ -14,6 +14,10 @@ Required:
 - Stack-chan-side WebSocket server
 - An LLM for conversation: OpenAI, Gemini, OpenAI compatible API, or a local LLM
 
+Compatible Stack-chan-side firmware is available from the Releases page:
+
+https://github.com/Corvelis/stackchan-pet-fw/releases
+
 Required for voice and image features:
 
 - Binary WebSocket microphone audio from Stack-chan. The app expects PCM16 with
