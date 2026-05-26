@@ -56,7 +56,7 @@ Main features:
 
 ## 2. Installation
 
-### iPhone / iPad
+### iPhone
 
 1. Open TestFlight from the invitation email or shared link.
 2. Install `StackChan Pet Talk`.
@@ -153,17 +153,16 @@ that require an image can trigger Stack-chan camera capture. For example,
 questions such as "Can you see this?" or "Look at what is in front of you" can
 start capture and recognition.
 
-When `VLM fallback response` is enabled, the same image can be sent to the LLM
-even when the master face does not match or no face is found.
+When `VLM fallback response` is enabled, the same image is sent to the VLM when
+the master face does not match or no face is found.
 
 ### Stack-chan Button And Touch Reactions
 
 When the app receives a camera/capture button event from Stack-chan, it starts a
 short visual-description conversation using the captured image.
 
-When the app receives petting, touch, pat, or pet events, it reacts with a voice
-line for the current affection level. If master recognition is enabled and the
-master is not confirmed yet, the app may run a camera master check first.
+When the app receives a petting event, it reacts with a voice line for the
+current affection level.
 
 ## 5. Connection Settings
 
@@ -209,11 +208,8 @@ Settings:
 The app converts each detected speech segment to WAV and sends it to the
 whisper.cpp server `/inference` API as multipart form-data. If the URL has no
 path, the app appends `/inference` automatically. For example,
-`http://192.168.68.93:8090` sends requests to
-`http://192.168.68.93:8090/inference`.
-
-When connecting from a real phone to a server running on your PC, `localhost`
-points to the phone itself. Use the PC LAN IP in the URL to reach the PC server.
+`http://192.168.0.10:8090` sends requests to
+`http://192.168.0.10:8090/inference`.
 
 `VAD silence` controls how much silence is required before speech is considered
 finished.
@@ -240,18 +236,11 @@ On iPhone Safari, tapping `config.json` may display the JSON text instead of
 downloading it. Open the file through Hugging Face `raw`, then long-press the
 displayed JSON page and choose `Download Linked File`.
 
-If you can prepare files on a PC, you can also use the Piper Plus base model
-`piper-plus-base` with download name `base`. If you use character-specific
-voices or specific speaker models such as Tsukuyomi-chan, you can prepare them
-and select them in the app. If you use a Tsukuyomi-chan voice model, review
-[Voice Model Usage Notes](voice-model-terms.md), the model card, and provider
-terms first.
+Tsukuyomi-chan character voices can also be used. If you use a Tsukuyomi-chan
+voice model, review [Voice Model Usage Notes](voice-model-terms.md), the model
+card, and provider terms first.
 For the Piper Plus download command, OpenJTalk dictionary URL, and file
 placement, see [Model, Dictionary, and Runtime Downloads](model-downloads.md).
-
-Selected model and config files are imported into app-managed storage. After
-import, the app uses the imported copy even if the original file is moved or
-deleted.
 
 #### OpenAI TTS
 
@@ -293,22 +282,14 @@ Settings:
 - `Irodori num_steps`: Generation step count for Irodori TTS. The default is `20`. Lower values may be faster; higher values may improve quality.
 - `Speech gap`: Gap between punctuation-based audio segments. The default is `50ms`.
 
-When a real device connects to an Irodori TTS server running on your PC,
-`localhost` points to the phone itself. Use the PC LAN IP in the Base URL.
-
 When `TTS voice` is `none`, the reference voice is not fixed and the voice may
-vary between requests. To keep the voice consistent, upload a reference voice
+change between requests. To keep the voice consistent, upload a reference voice
 and select that voice name.
-
-The first response can be slower because the Irodori server may need to load the
-model or process a character voice. Use `Warm up: こんにちは` to test and warm up
-the configured voice before conversation.
 
 Immediately before TTS synthesis, the app applies lightweight vocabulary rules
 for attacks, political/religious/ideological calls to action, and intense
 expressions. When text matches these rules, the conversation text remains
-visible, but audio synthesis is skipped. This is a TTS voice usage safeguard
-and does not rewrite the LLM output itself.
+visible, but audio synthesis is skipped.
 
 ## 7. LLM Settings
 
@@ -326,9 +307,7 @@ API providers use settings such as Base URL, model name, and API key. Local LLM
 providers use a model file and generation settings such as max tokens,
 temperature, topK, topP, context size, batch size, and thread count.
 
-When using an OpenAI compatible API server running on your PC from a real
-phone, `localhost` points to the phone itself. Set Base URL to the PC LAN IP,
-for example `http://192.168.x.x:8080/v1`.
+Set Base URL to the PC LAN IP, for example `http://192.168.0.10:8080/v1`.
 
 `Conversation history for LLM` controls how many past turns are sent to the LLM.
 Thinking control is available for compatible models.
@@ -336,22 +315,18 @@ Thinking control is available for compatible models.
 For llama.cpp, select a GGUF model file. If you use a vision-capable model,
 select an mmproj file as well. For LiteRT-LM, the current app implementation
 selects a `.litertlm` model file. `.task` files are not selectable in this
-screen. When testing a local LLM from a phone only, start with Gemma 4 E2B
+screen. When testing a local LLM from a smartphone, start with Gemma 4 E2B
 `gemma-4-E2B-it.litertlm`.
 
 - Repository: https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm
 - Direct download: https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm/resolve/main/gemma-4-E2B-it.litertlm
 
-For local LLMs, you can choose CPU or GPU. llama.cpp on Android uses CPU.
+For local LLMs, you can choose CPU or GPU. Android x llama.cpp is CPU only.
 When llama.cpp uses GPU, adjust the GPU layer count. Lower it if Metal crashes.
 
 llama.cpp and LiteRT-LM provide warmup buttons. Use them to confirm that the
 model loads correctly. LiteRT-LM also has `VLM image warmup`, which verifies
 initialization with image input.
-
-API keys are stored in secure storage on the device. If you choose an external
-API provider, inputs and parts of conversation data may be sent to that external
-service.
 
 ## 8. Master Recognition
 
@@ -360,7 +335,6 @@ Open `Settings > Master recognition` to configure face and voice recognition.
 Important:
 
 - Master recognition is for character interaction.
-- Do not use it for identity verification, login, security, or access control.
 - The design stores recognition embeddings, not raw face images or raw voice
   recordings.
 
@@ -450,39 +424,11 @@ This is for behavior checks. Normal users do not need to change it.
 
 Open `Settings > Licenses` to view bundled license and NOTICE information.
 
-The license page includes:
-
-- This app's license
-- Flutter / Dart / pub dependencies
-- Bundled models
-- Dictionaries
-- Native runtimes
-- Third-party open-source notices
-
-To keep the page readable, bundled model, dictionary, and native runtime
-notices are consolidated under the `StackChan Pet Talk` license entry.
-Detailed file paths, SHA-256 hashes, and source URLs are maintained in the
-release `distribution/model_manifest.yaml`.
-
-The limited beta is distributed for free, but license notices are still
-required.
-
-The whisper.cpp server integration only calls an external server started by the
-user. Unless this app bundles whisper.cpp itself, whisper.cpp binaries, or
-whisper.cpp model files, they are not part of this app's bundled license
-display.
-
-Connection greeting voices, affection-level voice selection, and camera master
-check control reuse existing app settings and capabilities. Unless new external
-libraries, models, voice assets, or dictionaries are bundled, this feature does
-not require additional license notices.
-
 ## 13. Privacy
 
-The app is designed with a local-first policy. However, if you configure
-external APIs such as OpenAI API, an OpenAI compatible API, or Gemini API,
-texts, recognition results, images, or parts of conversation history may be sent
-to those external services.
+If you configure external APIs such as OpenAI API, an OpenAI compatible API, or
+Gemini API, texts, recognition results, images, or parts of conversation history
+may be sent to those external services.
 
 See:
 
