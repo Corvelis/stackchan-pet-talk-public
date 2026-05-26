@@ -45,16 +45,6 @@ https://play.google.com/store/apps/details?id=app.stackchan.pet.talk
 
 https://github.com/Corvelis/stackchan-pet-fw
 
-## テストしてほしいこと
-
-- ｽﾀｯｸﾁｬﾝ本体との接続
-- 接続後の会話画面への遷移
-- テキスト入力による会話
-- 音声認識を使った会話
-- 音声合成による返答
-- キャラクター設定や会話設定の変更
-- 接続できない場合や期待通りに動かない場合のフィードバック
-
 ## 開発者の確認環境
 
 開発者は主に以下の端末で動作確認しています。
