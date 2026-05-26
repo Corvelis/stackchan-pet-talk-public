@@ -208,7 +208,3 @@ http://192.168.0.10:8080/v1
 http://192.168.0.10:8090
 http://192.168.0.10:8088/v1
 ```
-
-このスクリプトは、`models/` と `native/llama_bridge/ios/lib/litert_lm/`
-配下にある配布対象ファイルが `distribution/model_manifest.yaml` に登録され、
-SHA-256 が一致することを確認します。
