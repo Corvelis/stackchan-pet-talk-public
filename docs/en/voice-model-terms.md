@@ -30,8 +30,6 @@ When using a Tsukuyomi-chan voice model, do not use generated voice for the foll
 The definition of criticizing or attacking people follows the Tsukuyomi-chan character license.
 (https://play.google.com/store/apps/details?id=app.stackchan.pet.talk)
 
-Distribution or sale as an appreciation/listening work is not prohibited by the Tsukuyomi-chan terms themselves. However, always check the conditions for the selected voice model, publication platform, and distribution format.
-
 ## LLM Output
 
 LLMs may produce unexpected output. If an inappropriate utterance is generated accidentally, do not use, consume, or spread it for the prohibited purposes above.
