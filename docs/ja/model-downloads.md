@@ -1,6 +1,6 @@
 # モデル/辞書/ランタイムの入手先
 
-English: [MODEL_DOWNLOADS.md](MODEL_DOWNLOADS.md)
+English: [model-downloads.md](../en/model-downloads.md)
 
 Git 管理されたソースには、ユーザーが選択して使う音声モデル、ローカル
 LLM モデル、SDK 一式、任意の事前ビルドバイナリは含めません。
@@ -13,7 +13,7 @@ LLM モデル、SDK 一式、任意の事前ビルドバイナリは含めませ
 - ベータ配布ビルドに同梱される可能性があるファイル
 
 TestFlight で受け取ったアプリを初めて使う場合は、先に
-[docs/ja/getting-started.md](docs/ja/getting-started.md) を確認してください。
+[getting-started.md](getting-started.md) を確認してください。
 この文書は、そこで選ぶモデルファイルの入手先、ファイル名、注意点を補足します。
 
 新しいファイルを配布物に含める場合は、配布前に入手元 URL、ライセンス、
@@ -78,7 +78,7 @@ TestFlight 版でも操作は同じです。`設定 > 音声AI` で `Piper Plus`
 - `piper-plus-base` のモデルカードは現時点で CC-BY-4.0 を表示しています。
 - キャラクター音声や特定話者モデルは、モデルカードと配布元の利用条件を必ず確認してください。
 - 初回例は `piper-plus-css10-ja-6lang` ですが、つくよみちゃん音声モデルもユーザーが用意して利用できます。
-- つくよみちゃん音声モデルを使う場合は、[音声モデル利用時の注意](docs/ja/voice-model-terms.md) と配布元の利用条件を確認してください。
+- つくよみちゃん音声モデルを使う場合は、[音声モデル利用時の注意](voice-model-terms.md) と配布元の利用条件を確認してください。
 
 日本語 OpenJTalk 系モデルを使う場合は、OpenJTalk 辞書も必要です。
 

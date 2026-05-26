@@ -25,13 +25,13 @@ Required for voice and image features:
 - JSON events such as `interaction.event` or `camera_button` from Stack-chan
   when using petting, touch, or camera button reactions.
 
-If you use local models or dictionaries, read [MODEL_DOWNLOADS.md](../MODEL_DOWNLOADS.md)
+If you use local models or dictionaries, read [Model, Dictionary, and Runtime Downloads](model-downloads.md)
 first. It lists Piper Plus voice models, OpenJTalk dictionaries, llama.cpp
 GGUF files, LiteRT-LM `.litertlm` files, bundled model/runtime sources, and
 license checks.
 
 For the shortest beta setup flow, start with
-[docs/en/getting-started.md](en/getting-started.md).
+[Getting Started](getting-started.md).
 
 ## 1. What This App Does
 
@@ -244,10 +244,10 @@ If you can prepare files on a PC, you can also use the Piper Plus base model
 `piper-plus-base` with download name `base`. If you use character-specific
 voices or specific speaker models such as Tsukuyomi-chan, you can prepare them
 and select them in the app. If you use a Tsukuyomi-chan voice model, review
-[Voice Model Usage Notes](en/voice-model-terms.md), the model card, and provider
+[Voice Model Usage Notes](voice-model-terms.md), the model card, and provider
 terms first.
 For the Piper Plus download command, OpenJTalk dictionary URL, and file
-placement, see [MODEL_DOWNLOADS.md](../MODEL_DOWNLOADS.md).
+placement, see [Model, Dictionary, and Runtime Downloads](model-downloads.md).
 
 Selected model and config files are imported into app-managed storage. After
 import, the app uses the imported copy even if the original file is moved or
@@ -486,8 +486,8 @@ to those external services.
 
 See:
 
-- [PRIVACY_en.md](../PRIVACY_en.md)
-- [THIRD_PARTY_LICENSES_en.md](../THIRD_PARTY_LICENSES_en.md)
+- [PRIVACY_en.md](../../PRIVACY_en.md)
+- [THIRD_PARTY_LICENSES_en.md](../../THIRD_PARTY_LICENSES_en.md)
 
 ## 14. Troubleshooting
 

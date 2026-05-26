@@ -68,7 +68,7 @@ The developer mainly tests with:
 - [iPhone / TestFlight Beta](docs/en/ios-testflight.md)
 - [Android Beta Instructions](docs/en/android-beta.md)
 - [Troubleshooting](docs/en/troubleshooting.md)
-- [Full User Guide](docs/user_manual_en.md)
+- [Full User Guide](docs/en/user-manual.md)
 
 ## Notes
 
@@ -83,5 +83,5 @@ Piper Plus voice models have model-specific terms. Tsukuyomi-chan voice models c
 - [Privacy Policy](privacy/en.md)
 - [プライバシーポリシー](privacy/ja.md)
 - [Third-Party Licenses](THIRD_PARTY_LICENSES_en.md)
-- [Model, Dictionary, and Runtime Downloads](MODEL_DOWNLOADS.md)
+- [Model, Dictionary, and Runtime Downloads](docs/en/model-downloads.md)
 - [Voice Model Usage Notes](docs/en/voice-model-terms.md)

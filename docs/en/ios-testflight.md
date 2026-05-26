@@ -51,4 +51,4 @@ The distributor uses this information only for beta operation, issue investigati
 
 The public TestFlight link may stop working when the tester limit is reached or the beta period ends.
 
-For detailed app usage, see the [Full User Guide](../user_manual_en.md).
+For detailed app usage, see the [Full User Guide](user-manual.md).

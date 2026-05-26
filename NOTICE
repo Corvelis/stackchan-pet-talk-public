@@ -1,0 +1,14 @@
+StackChan Pet Talk
+Copyright 2026 StackChan Pet Talk contributors
+
+This product is licensed under the Apache License, Version 2.0.
+
+This repository contains Flutter application source, project documentation,
+and native source for the Piper Plus TTS warmup path and local LLM bridges.
+
+Limited beta builds may bundle local models, dictionaries, and runtime
+libraries recorded in `distribution/model_manifest.yaml`, including
+ReazonSpeech, Silero VAD, OpenCV YuNet/SFace, CAM++ / 3D-Speaker, OpenJTalk
+dictionary files, Piper Plus dictionary data, and LiteRT-LM runtime libraries.
+Their notices are consolidated in the in-app Licenses page under
+"StackChan Pet Talk".

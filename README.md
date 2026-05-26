@@ -68,7 +68,7 @@ https://github.com/Corvelis/stackchan-pet-fw
 - [iPhone / TestFlight 参加方法](docs/ja/ios-testflight.md)
 - [Android ベータ版参加方法](docs/ja/android-beta.md)
 - [トラブルシューティング](docs/ja/troubleshooting.md)
-- [詳しい操作手順](docs/user_manual_ja.md)
+- [詳しい操作手順](docs/ja/user-manual.md)
 
 ## 注意
 
@@ -83,5 +83,5 @@ Piper Plus の音声モデルにはモデルごとの利用条件があります
 - [プライバシーポリシー](privacy/ja.md)
 - [Privacy Policy](privacy/en.md)
 - [サードパーティライセンス](THIRD_PARTY_LICENSES_ja.md)
-- [モデル/辞書/ランタイムの入手先](MODEL_DOWNLOADS_ja.md)
+- [モデル/辞書/ランタイムの入手先](docs/ja/model-downloads.md)
 - [音声モデル利用時の注意](docs/ja/voice-model-terms.md)

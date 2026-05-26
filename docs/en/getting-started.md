@@ -106,7 +106,7 @@ App settings:
 5. Keep the default settings at first.
 6. Tap the `Warm up` button to confirm that the model loads.
 
-For details and model notes, see [Model, Dictionary, and Runtime Downloads](../../MODEL_DOWNLOADS.md).
+For details and model notes, see [Model, Dictionary, and Runtime Downloads](model-downloads.md).
 
 ## 6. Prepare Piper Plus TTS
 
@@ -176,7 +176,7 @@ Notes:
 - If you can prepare files on a PC, you can also use `piper-plus-base` with `piper --download-model base`.
 - If you use a character-specific voice such as Tsukuyomi-chan, check the model provider's terms and [Voice Model Usage Notes](voice-model-terms.md) first.
 
-For download details, see [Model, Dictionary, and Runtime Downloads](../../MODEL_DOWNLOADS.md).
+For download details, see [Model, Dictionary, and Runtime Downloads](model-downloads.md).
 
 ## 7. Start Testing
 
@@ -208,7 +208,7 @@ Voice conversation requires both app-side voice settings and Stack-chan-side mic
 
 ## 8. Full User Guide
 
-Detailed screen descriptions, Voice AI, LLM, character settings, and master recognition are covered in the [Full User Guide](../user_manual_en.md).
+Detailed screen descriptions, Voice AI, LLM, character settings, and master recognition are covered in the [Full User Guide](user-manual.md).
 
 ## 9. If Something Does Not Work
 

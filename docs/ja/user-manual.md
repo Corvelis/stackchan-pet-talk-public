@@ -21,10 +21,10 @@ TestFlight または Google Play クローズドテストで配布される限�
 - Stack-chan カメラの HTTP `POST /capture`。画像質問、顔登録、顔判定、カメラボタン反応で使います。
 - なでなで/タッチ/カメラボタンを使う場合は、Stack-chan 側から `interaction.event` または `camera_button` の JSON イベントが届くこと。
 
-ローカルモデルや辞書を使う場合は、先に [MODEL_DOWNLOADS_ja.md](../MODEL_DOWNLOADS_ja.md) を確認してください。
+ローカルモデルや辞書を使う場合は、先に [モデル/辞書/ランタイムの入手先](model-downloads.md) を確認してください。
 Piper Plus 音声モデル、OpenJTalk 辞書、llama.cpp GGUF、LiteRT-LM `.litertlm`、同梱モデル/ランタイムの入手先とライセンス確認事項をまとめています。
 ベータ版の最短セットアップだけを確認したい場合は、
-[docs/ja/getting-started.md](ja/getting-started.md) を使ってください。
+[初回セットアップ](getting-started.md) を使ってください。
 
 ## 1. このアプリでできること
 
@@ -214,8 +214,8 @@ Piper Plus を使う場合は、モデルファイル `.onnx` と設定ファイ
 iPhone の Safari では、`config.json` を普通にタップすると JSON の中身が表示される場合があります。Hugging Face の `raw` で JSON の中身を表示し、その画面を長押しして `リンク先のファイルをダウンロード` を選んでください。
 
 PC で Piper Plus のコマンドを使える場合は、Piper Plus の標準モデル `piper-plus-base`（ダウンロード名 `base`）を使う方法もあります。
-つくよみちゃんなどのキャラクター音声や特定話者モデルも、ユーザーが用意してアプリから選択できます。つくよみちゃん音声モデルを使う場合は、[音声モデル利用時の注意](ja/voice-model-terms.md) と配布元の利用条件を確認してください。
-Piper Plus の入手コマンド、OpenJTalk 辞書のダウンロード URL、配置場所は [MODEL_DOWNLOADS_ja.md](../MODEL_DOWNLOADS_ja.md) を確認してください。
+つくよみちゃんなどのキャラクター音声や特定話者モデルも、ユーザーが用意してアプリから選択できます。つくよみちゃん音声モデルを使う場合は、[音声モデル利用時の注意](voice-model-terms.md) と配布元の利用条件を確認してください。
+Piper Plus の入手コマンド、OpenJTalk 辞書のダウンロード URL、配置場所は [モデル/辞書/ランタイムの入手先](model-downloads.md) を確認してください。
 
 モデルファイルと設定ファイルは、ファイル選択後にアプリ管理領域へ取り込まれます。
 元ファイルを移動または削除しても、取り込み済みのファイルが使われます。
@@ -420,8 +420,8 @@ whisper.cpp server 連携は、ユーザーが別途起動した外部サーバ�
 
 詳しくは次の文書を確認してください。
 
-- [PRIVACY_ja.md](../PRIVACY_ja.md)
-- [THIRD_PARTY_LICENSES_ja.md](../THIRD_PARTY_LICENSES_ja.md)
+- [PRIVACY_ja.md](../../PRIVACY_ja.md)
+- [THIRD_PARTY_LICENSES_ja.md](../../THIRD_PARTY_LICENSES_ja.md)
 
 ## 14. 困ったとき
 
