@@ -209,37 +209,6 @@ http://192.168.0.10:8090
 http://192.168.0.10:8088/v1
 ```
 
-## ベータビルドに同梱される可能性があるファイル
-
-ここにあるものは、通常の利用者が個別にダウンロードして設定画面で選ぶものではありません。
-TestFlight / Google Play ベータビルドに同梱される可能性があるファイルです。
-
-実際に同梱してよいものは `distribution/model_manifest.yaml` で管理します。
-
-同梱対象になり得るもの:
-
-- ReazonSpeech ASR models
-- Silero VAD model
-- OpenCV YuNet / SFace face models
-- CAM++ / 3D-Speaker speaker embedding model
-- Piper Plus multilingual dictionary data
-- OpenJTalk UTF-8 dictionary
-- LiteRT-LM Android / iOS runtime libraries
-
-通常テスター向けの扱い:
-
-- ReazonSpeech や Silero VAD は、同梱済みビルドであれば設定画面からモデルパスを選ぶ必要はありません。
-- 顔/声のマスター認識モデルも、同梱済みビルドであればユーザーがファイル選択する必要はありません。
-- 同梱されていないビルドでは、その機能が使えない、または配布者が別途モデルパックを案内する必要があります。
-
-## 配布前チェック
-
-リリースビルド前に実行します。
-
-```sh
-bash scripts/check_release_assets.sh
-```
-
 このスクリプトは、`models/` と `native/llama_bridge/ios/lib/litert_lm/`
 配下にある配布対象ファイルが `distribution/model_manifest.yaml` に登録され、
 SHA-256 が一致することを確認します。
