@@ -70,6 +70,8 @@ Piper Plus voice models have model-specific terms. Tsukuyomi-chan voice models c
 
 ## Privacy and Licenses
 
+- Original documents in this public repository are published under [Apache-2.0](LICENSE).
+- Voice models, LLMs, dictionaries, firmware, and external services are governed by their own provider licenses and terms.
 - [Privacy Policy](privacy/en.md)
 - [プライバシーポリシー](privacy/ja.md)
 - [Third-Party Licenses](THIRD_PARTY_LICENSES_en.md)

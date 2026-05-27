@@ -6,15 +6,17 @@ StackChan Pet Talk lets users select Piper Plus voice models. Each voice model m
 
 ## Tsukuyomi-chan Voice Model
 
-The following unofficial Piper Plus Tsukuyomi-chan voice model can also be prepared by the user and selected in the app.
+The following Piper Plus Tsukuyomi-chan voice model can also be prepared by the user and selected in the app.
 
 - Piper Plus Tsukuyomi-chan: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan
 - `.onnx`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/tsukuyomi-chan-6lang-fp16.onnx
 - `.json`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/config.json
-- Tsukuyomi-chan corpus terms: https://tyc.rei-yumesaki.net/material/corpus/#terms3
-- Tsukuyomi-chan character license: https://tyc.rei-yumesaki.net/about/terms/#condition3
+- Tsukuyomi-chan corpus terms: https://tyc.rei-yumesaki.net/material/corpus/
+- Tsukuyomi-chan character license: https://tyc.rei-yumesaki.net/about/terms/
 
 The first setup example still uses `piper-plus-css10-ja-6lang`. If you use the Tsukuyomi-chan voice model, review the model card and the Tsukuyomi-chan terms before configuring it.
+Users who do not redistribute the model should also review the user-facing conditions in the Tsukuyomi-chan corpus terms.
+The Tsukuyomi-chan corpus terms require credit. If you publish, distribute, or post videos using generated voice, include the required credit according to the terms.
 
 In the app, select `tsukuyomi-chan-6lang-fp16.onnx` for `Piper Plus model (.onnx)` and `config.json` for `Piper Plus config (.json)`. On iPhone Safari, if `config.json` opens as text, open the Hugging Face `raw` view, long-press the displayed page, and choose `Download Linked File`.
 
@@ -28,7 +30,6 @@ When using a Tsukuyomi-chan voice model, do not use generated voice for the foll
 - Publishing the generated voice in a way that permits others to reuse it as source material.
 
 The definition of criticizing or attacking people follows the Tsukuyomi-chan character license.
-(https://play.google.com/store/apps/details?id=app.stackchan.pet.talk)
 
 ## LLM Output
 

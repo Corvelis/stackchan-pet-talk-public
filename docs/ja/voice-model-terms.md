@@ -7,15 +7,17 @@ StackChan Pet Talk では、Piper Plus の音声モデルをユーザーが選�
 
 ## つくよみちゃん音声モデルについて
 
-次の非公式 Piper Plus つくよみちゃん音声モデルも、ユーザーが用意してアプリから選択できます。
+次の Piper Plus つくよみちゃん音声モデルも、ユーザーが用意してアプリから選択できます。
 
 - Piper Plus つくよみちゃん: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan
 - `.onnx`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/tsukuyomi-chan-6lang-fp16.onnx
 - `.json`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/config.json
-- つくよみちゃんコーパス利用規約: https://tyc.rei-yumesaki.net/material/corpus/#terms3
-- つくよみちゃんキャラクターライセンス: https://tyc.rei-yumesaki.net/about/terms/#condition3
+- つくよみちゃんコーパス利用規約: https://tyc.rei-yumesaki.net/material/corpus/
+- つくよみちゃんキャラクターライセンス: https://tyc.rei-yumesaki.net/about/terms/
 
 初回セットアップでは、まず `piper-plus-css10-ja-6lang` を案内しています。つくよみちゃん音声モデルを使う場合は、モデルカードとつくよみちゃん側の利用条件を確認したうえで設定してください。
+再配布を行わない通常利用者は、つくよみちゃんコーパス利用規約の利用者向け条件も確認してください。
+また、つくよみちゃんコーパス側にはクレジット表記の義務があります。公開・配布・動画投稿などを行う場合は、利用規約に従って必要なクレジットを記載してください。
 
 アプリでは `Piper Plus モデル (.onnx)` に `tsukuyomi-chan-6lang-fp16.onnx`、`Piper Plus 設定 (.json)` に `config.json` を選択します。iPhone の Safari で `config.json` が中身表示になる場合は、Hugging Face の `raw` 表示画面を長押しして `リンク先のファイルをダウンロード` を選んでください。
 
@@ -28,7 +30,7 @@ StackChan Pet Talk では、Piper Plus の音声モデルをユーザーが選�
 - 刺激の強い表現をゾーニングなしで公開すること。
 - 他者に対して二次利用、素材としての利用を許可する形で公開すること。
 
-「人を批判・攻撃すること」の定義は、つくよみちゃんキャラクターライセンスに準じます。(https://play.google.com/store/apps/details?id=app.stackchan.pet.talk)
+「人を批判・攻撃すること」の定義は、つくよみちゃんキャラクターライセンスに準じます。
 
 ## LLM出力について
 
