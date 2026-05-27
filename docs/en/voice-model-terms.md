@@ -12,7 +12,7 @@ The following Piper Plus Tsukuyomi-chan voice model can also be prepared by the 
 - `.onnx`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/tsukuyomi-chan-6lang-fp16.onnx
 - `.json`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/config.json
 - Tsukuyomi-chan corpus terms: https://tyc.rei-yumesaki.net/material/corpus/
-- Terms for using the model to read StackChan Pet Talk generated text and publishing that use in videos or similar formats: https://tyc.rei-yumesaki.net/material/corpus/#terms2
+- Terms for using a Tsukuyomi-chan voice to read StackChan Pet Talk generated text and publishing that use in videos or similar formats: https://tyc.rei-yumesaki.net/material/corpus/#terms2
 - Tsukuyomi-chan character license: https://tyc.rei-yumesaki.net/about/terms/
 
 The first setup example still uses `piper-plus-css10-ja-6lang`. If you use the Tsukuyomi-chan voice model, review the model card and the Tsukuyomi-chan terms before configuring it.

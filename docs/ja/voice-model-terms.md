@@ -13,7 +13,7 @@ StackChan Pet Talk では、Piper Plus の音声モデルをユーザーが選�
 - `.onnx`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/tsukuyomi-chan-6lang-fp16.onnx
 - `.json`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/config.json
 - つくよみちゃんコーパス利用規約: https://tyc.rei-yumesaki.net/material/corpus/
-- StackChan Pet Talk の生成テキストの読み上げに使用し、その様子を動画等の形式で公開する場合の利用規約: https://tyc.rei-yumesaki.net/material/corpus/#terms2
+- つくよみちゃんボイスを StackChan Pet Talk の生成テキストの読み上げに使用し、その様子を動画等の形式で公開する場合の利用規約: https://tyc.rei-yumesaki.net/material/corpus/#terms2
 - つくよみちゃんキャラクターライセンス: https://tyc.rei-yumesaki.net/about/terms/
 
 初回セットアップでは、まず `piper-plus-css10-ja-6lang` を案内しています。つくよみちゃん音声モデルを使う場合は、モデルカードとつくよみちゃん側の利用条件を確認したうえで設定してください。
