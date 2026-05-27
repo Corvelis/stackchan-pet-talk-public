@@ -13,10 +13,10 @@ StackChan Pet Talk では、Piper Plus の音声モデルをユーザーが選�
 - `.onnx`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/tsukuyomi-chan-6lang-fp16.onnx
 - `.json`: https://huggingface.co/ayousanz/piper-plus-tsukuyomi-chan/resolve/main/config.json
 - つくよみちゃんコーパス利用規約: https://tyc.rei-yumesaki.net/material/corpus/
+- StackChan Pet Talk の生成テキストの読み上げに使用し、その様子を動画等の形式で公開する場合の利用規約: https://tyc.rei-yumesaki.net/material/corpus/#terms2
 - つくよみちゃんキャラクターライセンス: https://tyc.rei-yumesaki.net/about/terms/
 
 初回セットアップでは、まず `piper-plus-css10-ja-6lang` を案内しています。つくよみちゃん音声モデルを使う場合は、モデルカードとつくよみちゃん側の利用条件を確認したうえで設定してください。
-再配布を行わない通常利用者は、つくよみちゃんコーパス利用規約の利用者向け条件も確認してください。
 また、つくよみちゃんコーパス側にはクレジット表記の義務があります。公開・配布・動画投稿などを行う場合は、利用規約に従って必要なクレジットを記載してください。
 
 アプリでは `Piper Plus モデル (.onnx)` に `tsukuyomi-chan-6lang-fp16.onnx`、`Piper Plus 設定 (.json)` に `config.json` を選択します。iPhone の Safari で `config.json` が中身表示になる場合は、Hugging Face の `raw` 表示画面を長押しして `リンク先のファイルをダウンロード` を選んでください。
