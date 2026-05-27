@@ -29,7 +29,9 @@ When using a Tsukuyomi-chan voice model, do not use generated voice for the foll
 - Publishing intense expressions without appropriate zoning or access control.
 - Publishing the generated voice in a way that permits others to reuse it as source material.
 
-The definition of criticizing or attacking people follows the Tsukuyomi-chan character license.
+The definition of criticizing or attacking people follows condition3 of the Tsukuyomi-chan character license.
+
+https://tyc.rei-yumesaki.net/about/terms/#condition3
 
 ## LLM Output
 
