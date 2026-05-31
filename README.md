@@ -45,6 +45,27 @@ https://play.google.com/store/apps/details?id=app.stackchan.pet.talk
 
 https://github.com/Corvelis/stackchan-pet-fw
 
+## すれ違い通信
+
+対応ファームウェアでは、Stack-chan 同士のすれ違い履歴をアプリへ同期できます。
+
+アプリの `設定 > すれ違い通信` から、以下を操作できます。
+
+- Stack-chan 本体とのすれ違い履歴同期
+- すれ違いプロフィールの名前とメッセージ編集
+- すれ違った相手ごとの履歴表示
+- 相手ごとの履歴削除、メッセージ単位の削除
+
+通信は通常の WebSocket 接続に加えて、Android では USB Serial 接続にも対応します。
+USB Serial は既存の Stack-chan USB プロトコルの SCU1 JSON frame を使います。
+
+プロフィール文字数には UTF-8 byte 制限があります。
+
+- 名前: 最大 32 bytes
+- メッセージ: 最大 80 bytes
+
+日本語では、名前は約10文字、メッセージは約26文字が目安です。
+
 ## 開発者の確認環境
 
 開発者は主に以下の端末で動作確認しています。

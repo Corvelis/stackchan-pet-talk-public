@@ -1,6 +1,6 @@
 # StackChan Pet Talk User Guide
 
-Last updated: 2026-05-25
+Last updated: 2026-05-31
 
 This guide is for first-time users of `StackChan Pet Talk`. It assumes a
 limited beta build distributed through TestFlight or Google Play closed testing.
@@ -57,6 +57,7 @@ Main features:
 - Stack-chan camera/capture button reactions
 - Connection greeting voice lines when TTS is available
 - Petting/touch reactions
+- Stack-chan StreetPass history sync and profile editing
 
 ## 2. Installation
 
@@ -175,6 +176,7 @@ Open `Settings > Stack-chan connection` to change the connection target.
 Settings:
 
 - `SoftAP` / `Wi-Fi IP`
+- `USB Serial` on Android
 - Host
 - Port
 - Connect
@@ -182,7 +184,61 @@ Settings:
 
 After changing the connection mode or IP address, tap `Connect` again.
 
-## 6. Voice AI Settings
+USB Serial is available only on Android. In USB Serial mode, the Port field
+shows the baud rate, usually `921600`. This is handled separately from the
+Wi-Fi IP port.
+
+## 6. StreetPass
+
+Open `Settings > StreetPass` to sync StreetPass encounter history stored on the
+Stack-chan device.
+
+Basic flow:
+
+1. Connect to Stack-chan from `Settings > Stack-chan connection`.
+2. Open `Settings > StreetPass`.
+3. Tap `Sync now`.
+4. After sync, edit the StreetPass profile name and message.
+5. Encounter history is grouped by peer. Tap a peer to view messages received
+   from that peer.
+
+During sync, the app sends the current phone time to Stack-chan. Encounter
+times are displayed in the phone's local timezone. If the device recorded an
+encounter with unknown time quality, the app shows `Time unknown`.
+
+Editable profile fields:
+
+- Name
+- Message
+
+The app does not expose StreetPass enable/disable or profile sharing settings.
+
+Profile text limits are UTF-8 byte limits, not character counts.
+
+| Field | Limit |
+| --- | --- |
+| Name | 32 bytes |
+| Message | 80 bytes |
+
+For Japanese text, this is roughly 10 characters for the name and 26 characters
+for the message. The input fields show byte counts, and saving is disabled when
+the limit is exceeded.
+
+History behavior:
+
+- History is grouped by peer.
+- If two peers have the same display name but different firmware-side peer
+  identifiers, they are treated as different peers.
+- Repeated identical messages from the same peer are shown once in the message
+  history.
+- You can delete history by peer or delete an individual message history item.
+- History deleted in the app is not automatically restored by normal
+  incremental sync.
+
+Stack-chan has a limited number of records on the device. Sync periodically if
+you want to keep history in the app.
+
+## 7. Voice AI Settings
 
 Open `Settings > Voice AI` to configure ASR and TTS.
 
@@ -295,7 +351,7 @@ for attacks, political/religious/ideological calls to action, and intense
 expressions. When text matches these rules, the conversation text remains
 visible, but audio synthesis is skipped.
 
-## 7. LLM Settings
+## 8. LLM Settings
 
 Open `Settings > LLM` to configure the LLM used for conversation.
 
@@ -332,7 +388,7 @@ llama.cpp and LiteRT-LM provide warmup buttons. Use them to confirm that the
 model loads correctly. LiteRT-LM also has `VLM image warmup`, which verifies
 initialization with image input.
 
-## 8. Master Recognition
+## 9. Master Recognition
 
 Open `Settings > Master recognition` to configure face and voice recognition.
 
@@ -366,7 +422,7 @@ stores an averaged embedding, not raw recordings.
 when Stack-chan finds the master. `{masterName}` is replaced with the master
 name from character settings.
 
-## 9. Character Settings
+## 10. Character Settings
 
 Open `Settings > Character settings` to adjust Stack-chan's personality and
 reactions.
@@ -405,7 +461,7 @@ affection-level candidates.
 Master-found voice lines are edited from
 `Settings > Master recognition > Master found reactions`.
 
-## 10. Background Conversation
+## 11. Background Conversation
 
 On Android, use the phone icon at the top of the conversation screen to enable
 background conversation.
@@ -417,18 +473,18 @@ the app from battery optimization if needed.
 To stop background conversation, tap the same button again or stop it from the
 notification.
 
-## 11. Debug
+## 12. Debug
 
 Open `Settings > Debug` to temporarily change affection for the current
 session.
 
 This is for behavior checks. Normal users do not need to change it.
 
-## 12. Licenses
+## 13. Licenses
 
 Open `Settings > Licenses` to view bundled license and NOTICE information.
 
-## 13. Privacy
+## 14. Privacy
 
 If you configure external APIs such as OpenAI API, an OpenAI compatible API, or
 Gemini API, texts, recognition results, images, or parts of conversation history
@@ -439,7 +495,7 @@ See:
 - [PRIVACY_en.md](../../PRIVACY_en.md)
 - [THIRD_PARTY_LICENSES_en.md](../../THIRD_PARTY_LICENSES_en.md)
 
-## 14. Troubleshooting
+## 15. Troubleshooting
 
 Cannot connect:
 

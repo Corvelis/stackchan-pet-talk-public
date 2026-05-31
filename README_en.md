@@ -45,6 +45,30 @@ Compatible firmware:
 
 https://github.com/Corvelis/stackchan-pet-fw
 
+## StreetPass
+
+With compatible firmware, the app can sync Stack-chan StreetPass encounter
+history from the device.
+
+Open `Settings > StreetPass` to:
+
+- Sync StreetPass history from Stack-chan
+- Edit the StreetPass profile name and message
+- View encounter history grouped by peer
+- Delete history by peer or by individual message
+
+StreetPass works over the normal WebSocket connection. On Android, it also
+works over USB Serial using the existing Stack-chan USB protocol with SCU1 JSON
+frames.
+
+Profile text limits are UTF-8 byte limits:
+
+- Name: up to 32 bytes
+- Message: up to 80 bytes
+
+For Japanese text, this is roughly 10 characters for the name and 26 characters
+for the message.
+
 ## Developer Test Devices
 
 The developer mainly tests with:
