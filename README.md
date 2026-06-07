@@ -1,89 +1,88 @@
-# stackchan-talk
+# StackChan Pet Talk
 
-`stackchan-talk` is a clean Flutter app for everyday Stack-chan conversation.
-It is intentionally separated from the existing `voice_llm_studio` experiment app.
+日本語 | [English](README_en.md)
 
-The first milestone focuses on the app shell, UI structure, documents, and the design base for future Stack-chan connection work. ASR, LLM, TTS, native bridges, Android background service, and recognition implementations are not migrated in M1.
+StackChan Pet Talk は、`stackchan-pet-fw` を入れたｽﾀｯｸﾁｬﾝ本体と組み合わせて、スマートフォンからｽﾀｯｸﾁｬﾝとの会話を試すためのベータ版アプリです。
 
-## M1 Scope
+## ベータ版に参加する
 
-- Setup connection screen for SoftAP and STA/IP connection paths
-- Main conversation screen with Stack-chan state, speaker identity, affection, familiarity, bubbles, mic button, and text input
-- Settings category screen
-- Character settings skeleton for base prompt, master name, affection levels, reactions, prompt preview, and test area
-- In-app UI language switching for Japanese and English
-- Split Flutter structure for screens, widgets, theme, and models
-- Initial Stack-chan connection protocol/client interfaces with dummy implementation
-- Dummy-only connection and conversation state
+### iPhone / TestFlight
 
-## Release Direction
+TestFlight 公開リンク:
 
-The first public release is planned around:
+https://testflight.apple.com/join/Tt1Z4xpT
 
-- Stack-chan WebSocket connection
-- SoftAP / STA connection
-- Stack-chan microphone input and speaker output
-- ReazonSpeech ASR
-- Piper Plus TTS
-- OpenAI compatible API and optional OpenAI API
-- llama.cpp
-- LiteRT-LM CPU/GPU
-- Master face recognition and master voice recognition
-- Conversation tone switching for `master`, `guest`, and `unknown`
-- Affection and familiarity levels
-- Character settings editor
-- Lightweight conversation history
-- Android Foreground Service for background conversation
+参加手順は [iPhone / TestFlight 参加方法](docs/ja/ios-testflight.md) を確認してください。
 
-Out of initial scope:
+### Android
 
-- NPU / QAIRT / QNN
-- Agent skills
-- Agentic or semantic memory
-- Translation
-- Toio
-- Unity / Live2D
-- MioTTS
-- Style-Bert-VITS2
-- Moonshine
-- Qwen3 ASR
-- BLE/Wi-Fi pass-by features
+Android 版は Google Play のクローズドテストで配布しています。
 
-## Implementation Policy
+Googleグループ:
 
-- The app/repo/display name is `stackchan-talk`.
-- The Dart package name remains `stackchan_talk` because Dart package names cannot contain hyphens.
-- Android and Apple bundle identifiers use `app.stackchan.talk`.
-- Existing `voice_llm_studio` code is reference-only and must not be modified from this project.
-- Common package extraction is intentionally deferred.
-- Only necessary code will be manually migrated in later phases.
-- No model files, SDKs, or prebuilt binaries are bundled in this repository at this stage.
+https://groups.google.com/g/stackchan-pet-talk-android-beta
 
-## Reference-Only Sources
+テスト参加リンク:
 
-The current reference implementation lives outside this repository:
+https://play.google.com/apps/testing/app.stackchan.pet.talk
 
-`/Users/yuma/workspace/flutter_app/paie_agent/llamacpp_test_app/asr_llmplay/voice_llm_studio_gemma4_unity_20260407`
+Playストア:
 
-Relevant areas for later manual migration include Stack-chan WebSocket/audio, camera, affection/style, Piper Plus, ASR/ReazonSpeech, LLM services, and face/voice recognition. M1 does not copy or port those implementations.
+https://play.google.com/store/apps/details?id=app.stackchan.pet.talk
 
-## Privacy and Recognition Notes
+参加手順は [Android ベータ版について](docs/ja/android-beta.md) を確認してください。
 
-Master recognition is planned as an optional local-only character interaction feature. It is not a security or access-control feature and must not be presented as authentication.
+## 必要なもの
 
-## Development
+- ｽﾀｯｸﾁｬﾝ本体
+- `stackchan-pet-fw`
+- iPhone または Android 端末
+- ｽﾀｯｸﾁｬﾝ本体とスマートフォンが接続できる Wi-Fi 環境、または Stack-chan SoftAP
+- ローカルで会話を試す場合は、LiteRT-LM 用の `.litertlm` モデルファイル
+- Piper Plus で音声合成を試す場合は、`.onnx` 音声モデルと対応する `.json` 設定ファイル
 
-```sh
-flutter analyze
-flutter test
-flutter run
-```
+対応ファームウェア:
 
-Mobile build checks verified in the local M1 setup:
+https://github.com/Corvelis/stackchan-pet-fw
 
-```sh
-flutter build apk
-flutter build ios --simulator
-```
+## テストしてほしいこと
 
-iPhone device builds require the usual Apple Developer signing setup in Xcode.
+- ｽﾀｯｸﾁｬﾝ本体との接続
+- 接続後の会話画面への遷移
+- テキスト入力による会話
+- 音声認識を使った会話
+- 音声合成による返答
+- キャラクター設定や会話設定の変更
+- 接続できない場合や期待通りに動かない場合のフィードバック
+
+## 開発者の確認環境
+
+開発者は主に以下の端末で動作確認しています。
+
+- iOS: iPhone 17 Pro
+- Android: Xiaomi 15 Ultra
+
+## 使い方
+
+- [初回セットアップ](docs/ja/getting-started.md)
+- [iPhone / TestFlight 参加方法](docs/ja/ios-testflight.md)
+- [Android ベータ版参加方法](docs/ja/android-beta.md)
+- [トラブルシューティング](docs/ja/troubleshooting.md)
+- [詳しい操作手順](docs/ja/user-manual.md)
+- [思い出と日記の使い方](docs/ja/diary.md)
+
+## 注意
+
+このアプリの主要機能を使うには、同一ローカルネットワーク上のｽﾀｯｸﾁｬﾝ本体が必要です。ｽﾀｯｸﾁｬﾝ本体が見つからない場合、会話画面には進めません。
+
+外部 API を設定した場合、会話内容、プロンプト、音声認識対象データ、画像入力などが選択した API 提供元へ送信される場合があります。
+
+Piper Plus の音声モデルにはモデルごとの利用条件があります。つくよみちゃん音声モデルもユーザーが用意して利用できますが、出力音声の利用には禁止事項があります。詳しくは [音声モデル利用時の注意](docs/ja/voice-model-terms.md) を確認してください。
+
+## プライバシーとライセンス
+
+- [プライバシーポリシー](privacy/ja.md)
+- [Privacy Policy](privacy/en.md)
+- [サードパーティライセンス](THIRD_PARTY_LICENSES_ja.md)
+- [モデル/辞書/ランタイムの入手先](docs/ja/model-downloads.md)
+- [音声モデル利用時の注意](docs/ja/voice-model-terms.md)
