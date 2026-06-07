@@ -83,6 +83,7 @@ The developer mainly tests with:
 - [Android Beta Instructions](docs/en/android-beta.md)
 - [Troubleshooting](docs/en/troubleshooting.md)
 - [Full User Guide](docs/en/user-manual.md)
+- [Memories And Diary](docs/en/diary.md)
 
 ## Notes
 
