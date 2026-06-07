@@ -58,6 +58,7 @@ Main features:
 - Connection greeting voice lines when TTS is available
 - Petting/touch reactions
 - Stack-chan StreetPass history sync and profile editing
+- Memory logs and diary generation. See [Memories And Diary](diary.md) for details.
 
 ## 2. Installation
 
@@ -473,18 +474,30 @@ the app from battery optimization if needed.
 To stop background conversation, tap the same button again or stop it from the
 notification.
 
-## 12. Debug
+## 12. Memories And Diary
+
+Use the `Memories` icon on the conversation screen to review logs, photos, and
+diaries by date.
+
+A diary can be generated when the selected day has at least 5 eligible
+conversation or photo logs. In `Settings > Memories and diary`, you can adjust
+auto generation, diary boundary time, master-only filtering, photo saving,
+pre-summary behavior, and diary prompts.
+
+See [Memories And Diary](diary.md) for detailed usage.
+
+## 13. Debug
 
 Open `Settings > Debug` to temporarily change affection for the current
 session.
 
 This is for behavior checks. Normal users do not need to change it.
 
-## 13. Licenses
+## 14. Licenses
 
 Open `Settings > Licenses` to view bundled license and NOTICE information.
 
-## 14. Privacy
+## 15. Privacy
 
 If you configure external APIs such as OpenAI API, an OpenAI compatible API, or
 Gemini API, texts, recognition results, images, or parts of conversation history
@@ -495,7 +508,7 @@ See:
 - [PRIVACY_en.md](../../PRIVACY_en.md)
 - [THIRD_PARTY_LICENSES_en.md](../../THIRD_PARTY_LICENSES_en.md)
 
-## 15. Troubleshooting
+## 16. Troubleshooting
 
 Cannot connect:
 

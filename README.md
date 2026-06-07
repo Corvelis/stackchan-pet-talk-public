@@ -80,6 +80,7 @@ USB Serial は既存の Stack-chan USB プロトコルの SCU1 JSON frame を使
 - [Android ベータ版参加方法](docs/ja/android-beta.md)
 - [トラブルシューティング](docs/ja/troubleshooting.md)
 - [詳しい操作手順](docs/ja/user-manual.md)
+- [思い出と日記の使い方](docs/ja/diary.md)
 
 ## 注意
 
