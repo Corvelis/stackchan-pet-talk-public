@@ -373,6 +373,17 @@ Set Base URL to the PC LAN IP, for example `http://192.168.0.10:8080/v1`.
 `Conversation history for LLM` controls how many past turns are sent to the LLM.
 Thinking control is available for compatible models.
 
+For local LLMs, `Prefix KV cache` can preload part of the previous conversation
+history and system prompt so the next reply can start faster. You can turn it on
+or off in `Settings > LLM` under the local LLM settings. It applies to llama.cpp
+and LiteRT-LM. Enabling it may improve response start time, but the app performs
+extra preloading after conversation turns, so CPU / GPU / memory usage, heat, and
+battery consumption may increase. Turn it off if generation becomes unstable or
+the device gets too warm. Image-based conversations may fall back to normal
+generation without using this cache. When this setting is enabled, the amount of
+conversation history used by the local LLM is adjusted automatically for the
+selected local backend.
+
 For llama.cpp, select a GGUF model file. If you use a vision-capable model,
 select an mmproj file as well. For LiteRT-LM, the current app implementation
 selects a `.litertlm` model file. `.task` files are not selectable in this
