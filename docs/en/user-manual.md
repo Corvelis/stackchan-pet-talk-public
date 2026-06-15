@@ -275,6 +275,57 @@ path, the app appends `/inference` automatically. For example,
 `VAD silence` controls how much silence is required before speech is considered
 finished.
 
+### Keyword Activation
+
+Keyword activation lets the app wait for a registered wake phrase after you tap
+the microphone button. The wake phrase is not fixed. You record your own phrase
+and use that recording as the keyword.
+
+Open `Settings > Voice AI > Keyword Activation` to configure it.
+
+#### How to use it
+
+1. Turn on `Keyword activation`.
+2. Open `Register wake phrase` and record the phrase you want to use several
+   times, for example `Hey, Stack-chan` or `Start conversation`.
+3. Use `Test keyword detection` to check whether the app detects the registered
+   phrase.
+4. Tap the microphone button on the conversation screen.
+5. Say the wake phrase. A short sound plays, then the app enters normal
+   conversation mode.
+
+After the conversation starts, you do not need to say the wake phrase for every
+turn. You can keep talking normally.
+
+#### End phrases
+
+End phrases are checked from the ASR text after speech recognition.
+
+The default list includes phrases such as `またね、スタックチャン`, `会話終了`,
+and `対話終了`. You can add, remove, or replace them. Multiple end phrases can
+be registered.
+
+When you say an end phrase during a conversation, an end sound plays and the
+conversation ends. After that, the app waits for the wake phrase again before
+starting another conversation.
+
+#### Tuning
+
+- `Detection threshold`: Lower values reduce false detections but may miss the wake phrase. Higher values make detection easier but may react to similar speech.
+- `Wake Word VAD silence`: Silence duration used to split wake phrase candidates. Shorter values respond faster. Longer values make it easier to capture the whole phrase.
+- `VAD silence`: Silence duration used for normal ASR speech segmentation. This can be tuned separately from Wake Word VAD silence.
+
+Both Wake Word VAD silence and ASR VAD silence can be adjusted from 50ms to
+1000ms in 10ms steps. A shorter Wake Word value usually feels faster. A slightly
+longer ASR value can help avoid cutting off normal speech too early.
+
+#### Recording tips
+
+- Record from a distance, volume, and speaking style similar to normal use.
+- Very short phrases or words that often appear in normal conversation are more likely to cause false detections.
+- If detection is difficult, record the same wake phrase again or raise the threshold a little.
+- If false detections happen often, lower the threshold a little or use a longer, more distinctive wake phrase.
+
 ### TTS
 
 Choose a text-to-speech engine:
