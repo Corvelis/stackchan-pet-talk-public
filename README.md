@@ -37,9 +37,10 @@ https://play.google.com/store/apps/details?id=app.stackchan.pet.talk
 - ｽﾀｯｸﾁｬﾝ本体
 - `stackchan-pet-fw`
 - iPhone または Android 端末
-- ｽﾀｯｸﾁｬﾝ本体とスマートフォンが接続できる Wi-Fi 環境、または Stack-chan SoftAP
-- ローカルで会話を試す場合は、LiteRT-LM 用の `.litertlm` モデルファイル
+- ｽﾀｯｸﾁｬﾝ本体とスマートフォンが接続できる Wi-Fi 環境、Stack-chan SoftAP、または Android の USB Serial 接続
+- ローカルで会話を試す場合は、LiteRT-LM 用の `.litertlm` または llama.cpp 用の `.gguf` モデルファイル
 - Piper Plus で音声合成を試す場合は、`.onnx` 音声モデルと対応する `.json` 設定ファイル
+- iPhone で Style-Bert-VITS2 を試す場合は、変換済みの BERT / VITS2 モデルフォルダ
 
 対応ファームウェア:
 

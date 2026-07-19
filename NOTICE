@@ -12,3 +12,6 @@ ReazonSpeech, Silero VAD, OpenCV YuNet/SFace, CAM++ / 3D-Speaker, OpenJTalk
 dictionary files, Piper Plus dictionary data, and LiteRT-LM runtime libraries.
 Their notices are consolidated in the in-app Licenses page under
 "StackChan Pet Talk".
+
+The optional Piper Plus robot-style voice effect uses WORLD under its modified
+BSD license. Its full notice is included in the app's license information.

@@ -1,6 +1,6 @@
 # StackChan Pet Talk User Guide
 
-Last updated: 2026-05-31
+Last updated: 2026-07-20
 
 This guide is for first-time users of `StackChan Pet Talk`. It assumes a
 limited beta build distributed through TestFlight or Google Play closed testing.
@@ -27,10 +27,13 @@ Required for voice and image features:
 - Stack-chan camera HTTP `POST /capture` for visual questions, face enrollment,
   face checks, and camera button reactions.
 - JSON events such as `interaction.event` or `camera_button` from Stack-chan
-  when using petting, touch, or camera button reactions.
+  when using petting, touch, shake, or camera button reactions.
+- Compatible firmware that reports device information and capabilities when
+  using per-device characters, step count integration, or TTS speech bubbles.
 
 If you use local models or dictionaries, read [Model, Dictionary, and Runtime Downloads](model-downloads.md)
-first. It lists Piper Plus voice models, OpenJTalk dictionaries, llama.cpp
+first. It lists Piper Plus voice models, Style-Bert-VITS2 for iPhone,
+OpenJTalk dictionaries, llama.cpp
 GGUF files, LiteRT-LM `.litertlm` files, bundled model/runtime sources, and
 license checks.
 
@@ -57,6 +60,9 @@ Main features:
 - Stack-chan camera/capture button reactions
 - Connection greeting voice lines when TTS is available
 - Petting/touch reactions
+- Shake reactions and step-based connection voice lines
+- Image attachments from the phone camera, photo library, or Stack-chan camera
+- Shared or per-device character settings
 - Stack-chan StreetPass history sync and profile editing
 - Memory logs and diary generation. See [Memories And Diary](diary.md) for details.
 
@@ -82,6 +88,10 @@ Main features:
 
 After launch, choose how to connect to Stack-chan.
 
+Under `Character mode`, choose `Shared` to use one character with every
+Stack-chan, or `Per device` to keep character settings, affection, and memories
+separate for each connected device.
+
 ### SoftAP
 
 1. Put Stack-chan into SoftAP mode.
@@ -98,8 +108,16 @@ After launch, choose how to connect to Stack-chan.
 4. Enter the Port. The usual value is `8080`.
 5. Tap `Connect`.
 
+### USB Serial (Android Only)
+
+1. Connect a compatible Stack-chan to the Android phone with a USB cable.
+2. Select `USB Serial` in the app.
+3. Check the baud rate in the Port field. The usual value is `921600`.
+4. Tap `Connect` and allow USB device access if Android asks.
+
 When the connection succeeds, the app opens the conversation screen. If it
-fails, check Host, Port, your phone Wi-Fi, and the Stack-chan WebSocket setup.
+fails, check Host, Port, Wi-Fi, USB cable and permission, or Stack-chan-side
+communication settings as appropriate for the selected connection mode.
 
 If TTS is enabled, the app plays one connection greeting voice line only when
 you connect from the first connection screen. It does not play this greeting for
@@ -137,6 +155,7 @@ Bottom area:
 - Text input
 - Send button
 - Microphone button
+- Image attachment button
 
 To talk by text, type a message and send it. To talk by voice, configure LLM
 and TTS first, return to the conversation screen, and tap the microphone button
@@ -154,10 +173,21 @@ Use the `JA` / `EN` button in the app bar to switch the UI language.
 
 ### Asking About Images
 
-When `Camera master check` is enabled in master recognition settings, questions
-that require an image can trigger Stack-chan camera capture. For example,
-questions such as "Can you see this?" or "Look at what is in front of you" can
-start capture and recognition.
+Tap the image attachment button beside the input field to choose an image source:
+
+- `Phone camera`: Take a new photo.
+- `Photo library`: Choose an image stored on the phone.
+- `Device camera`: Capture an image with the connected Stack-chan when its
+  camera is available.
+
+The selected image is marked `Ready for the next message` and is attached to
+the next text you send. Answering questions about it requires an image-capable
+LLM and, for llama.cpp, a matching mmproj.
+
+In addition, when `Camera master check` is enabled in master recognition
+settings, questions that require an image can automatically trigger Stack-chan
+camera capture. For example, questions such as "Can you see this?" or "Look at
+what is in front of you" can start capture and recognition.
 
 When `VLM fallback response` is enabled, the same image is sent to the VLM when
 the master face does not match or no face is found.
@@ -167,8 +197,9 @@ the master face does not match or no face is found.
 When the app receives a camera/capture button event from Stack-chan, it starts a
 short visual-description conversation using the captured image.
 
-When the app receives a petting event, it reacts with a voice line for the
-current affection level.
+When the app receives a petting, touch, `pat`, or `pet` event, it reacts with a
+voice line for the current affection level. A `shake` or `start` event uses one
+of the character's `Voice line when shaken` entries.
 
 ## 5. Connection Settings
 
@@ -180,6 +211,7 @@ Settings:
 - `USB Serial` on Android
 - Host
 - Port
+- Character mode (`Shared` / `Per device`)
 - Connect
 - Disconnect
 
@@ -188,6 +220,10 @@ After changing the connection mode or IP address, tap `Connect` again.
 USB Serial is available only on Android. In USB Serial mode, the Port field
 shows the baud rate, usually `921600`. This is handled separately from the
 Wi-Fi IP port.
+
+In `Per device` mode, the app uses the device ID reported by compatible firmware
+to switch character settings and memories. If settings or diaries appear to be
+missing after connecting to another Stack-chan, check this mode.
 
 ## 6. StreetPass
 
@@ -332,12 +368,17 @@ Choose a text-to-speech engine:
 
 - Disabled
 - Piper Plus
+- Style-Bert-VITS2 (iPhone CoreML, iOS only)
 - OpenAI TTS
 - Irodori TTS server
 
 For Piper Plus, select a model file `.onnx` and a config file `.json`. You can
-adjust Japanese length, English length, noise scale, and noise W. Tap
-`Warm up: こんにちは` to test playback.
+adjust Japanese length, English length, noise scale, and noise W. Enable
+`Robot-style voice` to process the output with adjustable speed (0.5x to 4.0x),
+base F0 (50 to 500 Hz), and intonation (0 to 1).
+
+Enter a phrase under `Warmup text`, then tap `Warm up TTS` to test the current
+TTS settings.
 
 When testing from a phone only, start with this file pair:
 
@@ -353,6 +394,28 @@ voice model, review [Voice Model Usage Notes](voice-model-terms.md), the model
 card, and provider terms first.
 For the Piper Plus download command, OpenJTalk dictionary URL, and file
 placement, see [Model, Dictionary, and Runtime Downloads](model-downloads.md).
+
+The selected model and config are imported into app-managed storage. The
+imported copies remain usable if the original files are moved or deleted.
+
+#### Style-Bert-VITS2 (iPhone CoreML)
+
+On iPhone, the app can run a Style-Bert-VITS2 model that has already been
+converted to the supported split ONNX / Core ML format.
+
+Settings:
+
+- `BERT folder`: A folder containing the converted BERT model files.
+- `VITS2 folder`: A folder containing one or more converted voices.
+- `Voice`: A voice detected in the VITS2 folder.
+- `Speaker ID`: The speaker ID to use.
+- `Style`: A style included by the model, such as `Neutral`.
+- `Speech speed`: Adjustable from 0.5x to 2.0x.
+
+Select the BERT and VITS2 folders separately. They are copied into the app when
+first selected. Ordinary unconverted models cannot be selected directly. Use a
+compatible model prepared by the distributor, and review its model-specific
+license and usage terms.
 
 #### OpenAI TTS
 
@@ -374,6 +437,10 @@ next segment while the current one is playing, and preserve playback order. The
 app lightly trims leading and trailing silence from returned audio. Increase
 `Speech gap` if replies feel too fast, or decrease it if the pause feels too
 long.
+
+When compatible firmware reports `display.speech_bubble.v1`, the app sends each
+segmented utterance to Stack-chan and synchronizes the speech bubble with audio
+start, completion, and cancellation.
 
 #### Irodori TTS Server
 
@@ -451,6 +518,15 @@ llama.cpp and LiteRT-LM provide warmup buttons. Use them to confirm that the
 model loads correctly. LiteRT-LM also has `VLM image warmup`, which verifies
 initialization with image input.
 
+Selected GGUF, LiteRT-LM, and mmproj files are imported into app-managed
+storage. `Clear imported LLM files` removes the local LLM files and saved model
+paths from the app, but does not delete the original external files.
+
+For a supported gpt-oss Flash MoE model in llama.cpp on iPhone, select the GGUF
+first, then use `gpt-oss Flash MoE pack` to import the folder containing
+`.layer00.pack` through `.layer23.pack`. If missing layers are reported, select
+a complete pack again.
+
 ## 9. Master Recognition
 
 Open `Settings > Master recognition` to configure face and voice recognition.
@@ -510,17 +586,23 @@ Affection tab:
 
 Voice reactions tab:
 
+- Voice line when shaken
 - Voice line when petted for each affection level
 - Voice line when connected for each affection level
+- Enable/disable `Step-based connection voice` and edit candidates by step range
 - Add and delete reaction voice lines
 
 Tap `Save` after editing. Tap `Reset defaults` to reset the current tab.
 
 The petting voice lines are used when Stack-chan sends petting or touch events.
+The shaken voice lines are used when Stack-chan sends `shake` or `start` events.
 Connection greeting voice lines are used for the greeting played after
 connecting from the first connection screen. When camera master check is
 enabled, the app applies the recognition result before choosing from the
 affection-level candidates.
+Step-based connection voice lines are used above 1,000 steps when the step range
+has changed since the previous connection on the same day. This requires step
+data from compatible firmware.
 Master-found voice lines are edited from
 `Settings > Master recognition > Master found reactions`.
 
@@ -541,6 +623,11 @@ notification.
 Use the `Memories` icon on the conversation screen to review logs, photos, and
 diaries by date.
 
+When compatible firmware reports steps, the screen also shows the daily step
+count. From photo details, you can save an image to the phone's photo library.
+In `Per device` character mode, memories and diaries are shown for the currently
+connected character.
+
 A diary can be generated when the selected day has at least 5 eligible
 conversation or photo logs. In `Settings > Memories and diary`, you can adjust
 auto generation, diary boundary time, master-only filtering, photo saving,
@@ -552,6 +639,9 @@ See [Memories And Diary](diary.md) for detailed usage.
 
 Open `Settings > Debug` to temporarily change affection for the current
 session.
+
+For step greeting checks, a debug option can repeat the voice on every
+connection even when the same step range was already used that day.
 
 This is for behavior checks. Normal users do not need to change it.
 
