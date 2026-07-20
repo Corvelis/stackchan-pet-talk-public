@@ -22,7 +22,6 @@
 
 - For LiteRT-LM, select a `.litertlm` file. For llama.cpp, select a `.gguf` file.
 - For image input, use an `mmproj*.gguf` from the same model family and revision as the main GGUF.
-- For Flash MoE on iPhone, make sure the selected folder contains `.layer00.pack` through `.layer23.pack` from the same model.
 - Wait for import to finish after selecting a model. If the issue continues, use `Clear imported LLM files`, then select the files again.
 
 ## Speech Recognition Does Not Work
@@ -47,6 +46,7 @@
 - For features that need camera or photo permissions, check app permissions.
 - When attaching a phone image, make sure an image-capable LLM is configured and, for llama.cpp, a matching `mmproj` is selected.
 - The selected image is attached to the next message. Enter a question and send it after choosing the image.
+- If llama.cpp image processing is slow or runs out of memory, reduce `Settings > LLM > VLM input image max edge`. Increase it if fine detail or small text is hard to recognize.
 - If `Device camera` is not shown, the connected device either did not report camera support or its camera is unavailable.
 
 ## Steps, Shake Reactions, or Speech Bubbles Do Not Work

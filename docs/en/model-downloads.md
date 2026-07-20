@@ -219,12 +219,6 @@ How to choose:
   select `GGUF model file` and `mmproj` if needed.
 - The selected GGUF and mmproj are imported into app-managed storage.
 
-For a supported gpt-oss Flash MoE format on iPhone, select the main GGUF first, then select the
-corresponding layer-pack folder. The folder must contain all 24 files from
-`.layer00.pack` through `.layer23.pack`, created from the same model. If the app
-reports missing layers, select a complete pack again, and do not mix layers from
-different models or revisions.
-
 `Clear imported LLM files` removes the model copies and saved selections from
 app-managed storage. It does not delete the original downloaded files.
 

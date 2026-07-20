@@ -183,6 +183,8 @@ Tap the image attachment button beside the input field to choose an image source
 The selected image is marked `Ready for the next message` and is attached to
 the next text you send. Answering questions about it requires an image-capable
 LLM and, for llama.cpp, a matching mmproj.
+For llama.cpp, adjust the image size under
+`Settings > LLM > VLM input image max edge`.
 
 In addition, when `Camera master check` is enabled in master recognition
 settings, questions that require an image can automatically trigger Stack-chan
@@ -503,7 +505,15 @@ conversation history used by the local LLM is adjusted automatically for the
 selected local backend.
 
 For llama.cpp, select a GGUF model file. If you use a vision-capable model,
-select an mmproj file as well. For LiteRT-LM, the current app implementation
+select an mmproj file as well. `VLM input image max edge` offers `Original
+size`, `128px`, `256px`, `384px`, `512px`, `768px`, `1024px`, `1536px`, and
+`2048px`; the default is `2048px`. Images are downscaled while preserving their
+aspect ratio, and images already below the limit are not enlarged. A smaller
+value reduces processing time and memory use but may lose fine detail or small
+text. `Original size` skips this app-side downscaling, although the model or
+mmproj may still transform the image during preprocessing.
+
+For LiteRT-LM, the current app implementation
 selects a `.litertlm` model file. `.task` files are not selectable in this
 screen. When testing a local LLM from a smartphone, start with Gemma 4 E2B
 `gemma-4-E2B-it.litertlm`.
@@ -521,11 +531,6 @@ initialization with image input.
 Selected GGUF, LiteRT-LM, and mmproj files are imported into app-managed
 storage. `Clear imported LLM files` removes the local LLM files and saved model
 paths from the app, but does not delete the original external files.
-
-For a supported gpt-oss Flash MoE model in llama.cpp on iPhone, select the GGUF
-first, then use `gpt-oss Flash MoE pack` to import the folder containing
-`.layer00.pack` through `.layer23.pack`. If missing layers are reported, select
-a complete pack again.
 
 ## 9. Master Recognition
 
