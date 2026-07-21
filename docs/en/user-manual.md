@@ -163,6 +163,10 @@ at the bottom of the screen. When speech input starts, speak to Stack-chan, then
 check the speech recognition result, the LLM reply, and the reply audio from
 Stack-chan.
 
+Tap the arrow button next to the conversation history heading to collapse the
+connection status, Stack-chan state, affection, mood, confusion, event logs,
+and other status information, giving the conversation history more space.
+
 To clear the conversation history, tap the delete button next to the history
 heading.
 
