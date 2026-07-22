@@ -1,6 +1,6 @@
 # StackChan Pet Talk User Guide
 
-Last updated: 2026-07-20
+Last updated: 2026-07-22
 
 This guide is for first-time users of `StackChan Pet Talk`. It assumes a
 limited beta build distributed through TestFlight or Google Play closed testing.
@@ -148,7 +148,7 @@ Middle area:
 - Mood
 - Confusion
 - Conversation history
-- Error and event logs
+- Errors, event logs, and the active LLM model name
 
 Bottom area:
 
@@ -166,6 +166,9 @@ Stack-chan.
 Tap the arrow button next to the conversation history heading to collapse the
 connection status, Stack-chan state, affection, mood, confusion, event logs,
 and other status information, giving the conversation history more space.
+The status area also shows the active LLM model. Cloud providers such as Gemini
+and OpenAI use a name such as `Gemini 3.6 Flash`, while local LLMs show the model
+file name.
 
 To clear the conversation history, tap the delete button next to the history
 heading.
@@ -491,6 +494,10 @@ Providers:
 API providers use settings such as Base URL, model name, and API key. Local LLM
 providers use a model file and generation settings such as max tokens,
 temperature, topK, topP, context size, batch size, and thread count.
+
+For Gemini API, you can select models including Gemini 3.6 Flash, Gemini 3.5
+Flash, and Gemini 3.5 Flash-Lite. Compatible models let you choose the thinking
+level from minimal, low, medium, or high.
 
 Set Base URL to the PC LAN IP, for example `http://192.168.0.10:8080/v1`.
 
