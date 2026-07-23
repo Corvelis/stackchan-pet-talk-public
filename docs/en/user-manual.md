@@ -381,6 +381,11 @@ Choose a text-to-speech engine:
 - OpenAI TTS
 - Irodori TTS server
 
+Enable `Skip parenthesized text` to keep half-width `(...)`, full-width
+`（...）`, and their contents out of TTS. The reply shown on the conversation
+screen is unchanged; only the spoken text is filtered. This applies to both
+normal and streaming replies.
+
 For Piper Plus, select a model file `.onnx` and a config file `.json`. You can
 adjust Japanese length, English length, noise scale, and noise W. Enable
 `Robot-style voice` to process the output with adjustable speed (0.5x to 4.0x),
@@ -441,11 +446,13 @@ Settings:
 - `Speech speed`: Adjust playback speed.
 - `Speech gap`: Gap between punctuation-based audio segments. The default is `50ms`.
 
-OpenAI TTS and Irodori TTS split LLM replies around punctuation, synthesize the
-next segment while the current one is playing, and preserve playback order. The
-app lightly trims leading and trailing silence from returned audio. Increase
-`Speech gap` if replies feel too fast, or decrease it if the pause feels too
-long.
+Streaming replies treat `。`, `！`, `？`, `!`, and `?` as speech boundaries.
+Piper Plus and Style-Bert-VITS2 insert a 100ms gap between these audio
+segments. OpenAI TTS and Irodori TTS use the configured `Speech gap` and
+synthesize the next segment while the current one is playing. Playback order
+is preserved, and the app lightly trims leading and trailing silence from
+returned audio. Increase `Speech gap` if replies feel too fast, or decrease it
+if the pause feels too long.
 
 When compatible firmware reports `display.speech_bubble.v1`, the app sends each
 segmented utterance to Stack-chan and synchronizes the speech bubble with audio
@@ -495,9 +502,13 @@ API providers use settings such as Base URL, model name, and API key. Local LLM
 providers use a model file and generation settings such as max tokens,
 temperature, topK, topP, context size, batch size, and thread count.
 
-For Gemini API, you can select models including Gemini 3.6 Flash, Gemini 3.5
-Flash, and Gemini 3.5 Flash-Lite. Compatible models let you choose the thinking
-level from minimal, low, medium, or high.
+For OpenAI API, you can select GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna,
+GPT-5.5, GPT-5.4, GPT-5.4 mini, and GPT-5.4 nano. Choose `Other` to enter a
+model ID that is not in the list.
+
+For Gemini API, you can select Gemini 3.6 Flash, Gemini 3.5 Flash, Gemini 3.5
+Flash-Lite, Gemini 3.1 Flash-Lite, and Gemini 3 Flash Preview. Compatible
+models let you choose the thinking level from minimal, low, medium, or high.
 
 Set Base URL to the PC LAN IP, for example `http://192.168.0.10:8080/v1`.
 
@@ -524,6 +535,12 @@ value reduces processing time and memory use but may lose fine detail or small
 text. `Original size` skips this app-side downscaling, although the model or
 mmproj may still transform the image during preprocessing.
 
+The current llama.cpp runtime also supports compatible GGUF models such as
+Bonsai 27B and Agents-A1-4B. Select their model files in the same way as other
+GGUF models. Available quantizations, memory requirements, and performance
+depend on the model and phone. Start with a smaller quantization on a
+smartphone.
+
 For LiteRT-LM, the current app implementation
 selects a `.litertlm` model file. `.task` files are not selectable in this
 screen. When testing a local LLM from a smartphone, start with Gemma 4 E2B
@@ -542,6 +559,10 @@ initialization with image input.
 Selected GGUF, LiteRT-LM, and mmproj files are imported into app-managed
 storage. `Clear imported LLM files` removes the local LLM files and saved model
 paths from the app, but does not delete the original external files.
+
+`gpt-oss Flash MoE pack` and `LLM Debug Chat` are limited to special
+development builds. Their settings and screens are not shown and cannot be
+used in normal TestFlight or Google Play builds.
 
 ## 9. Master Recognition
 
@@ -658,6 +679,11 @@ session.
 
 For step greeting checks, a debug option can repeat the voice on every
 connection even when the same step range was already used that day.
+
+Special development builds may show `LLM Debug Chat`. This developer tool can
+test llama.cpp directly without connecting to Stack-chan and, when the runtime
+reports them, show prefill/decode speed and memory information. It is not shown
+in normal distribution builds.
 
 This is for behavior checks. Normal users do not need to change it.
 

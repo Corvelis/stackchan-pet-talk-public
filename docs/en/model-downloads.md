@@ -200,6 +200,14 @@ Gemma 4 E2B GGUF example:
 - Text model example: `google-gemma-4-E2B-it-Q4_K_M.gguf`
 - VLM projector example: `mmproj-BF16.gguf`
 
+Examples of GGUF compatibility added in this version:
+
+- Bonsai 27B
+- Agents-A1-4B
+
+Prepare a compatible GGUF from its distributor and select it under
+`GGUF model file`. These model files are not bundled with the app.
+
 Example placement:
 
 ```text
@@ -228,6 +236,8 @@ Notes:
 - Check the upstream model license, conversion source, quantization conditions,
   and commercial-use terms.
 - On smartphones, starting with a smaller Q4 quantization is practical.
+- Large models such as Bonsai 27B may require substantial memory even with
+  aggressive quantization.
 - Large GGUF or mmproj files can cause memory issues or slow first loads.
 
 ### Cloud API / PC Server
