@@ -1,6 +1,6 @@
 # StackChan Pet Talk User Guide
 
-Last updated: 2026-07-22
+Last updated: 2026-07-23
 
 This guide is for first-time users of `StackChan Pet Talk`. It assumes a
 limited beta build distributed through TestFlight or Google Play closed testing.

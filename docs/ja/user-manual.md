@@ -1,6 +1,6 @@
 # StackChan Pet Talk 使い方ガイド
 
-最終更新日: 2026-07-22
+最終更新日: 2026-07-23
 
 このガイドは、`StackChan Pet Talk` を初めて使う方向けの手順書です。
 TestFlight または Google Play クローズドテストで配布される限定ベータ版を前提にしています。
