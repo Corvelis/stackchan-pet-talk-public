@@ -38,6 +38,7 @@ whisper.cpp server 連携は、ユーザーが別途起動した外部サーバ�
 - llama.cpp / ggml: MIT
 - nlohmann/json: MIT
 - utf8-cpp: Nemanja Trifunovic による permissive license
+- WORLD: modified BSD
 
 ## モデルとランタイムの帰属表示
 
@@ -78,6 +79,12 @@ Piper Plus:
 - Source: https://github.com/ayutaz/piper-plus
 - License: MIT
 - Purpose: local TTS and multilingual G2P/dictionary data
+
+WORLD:
+
+- Source: https://github.com/mmorise/World
+- License: modified BSD
+- Purpose: Piper Plus の任意のロボット風ボイス処理
 
 LiteRT-LM:
 

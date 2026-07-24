@@ -53,6 +53,7 @@ Known runtime or native dependencies include:
 - llama.cpp / ggml: MIT
 - nlohmann/json: MIT
 - utf8-cpp: permissive license by Nemanja Trifunovic
+- WORLD: modified BSD
 
 ## Model and Runtime Attribution
 
@@ -93,6 +94,12 @@ Piper Plus:
 - Source: https://github.com/ayutaz/piper-plus
 - License: MIT
 - Purpose: local TTS and multilingual G2P/dictionary data
+
+WORLD:
+
+- Source: https://github.com/mmorise/World
+- License: modified BSD
+- Purpose: optional robot-style voice processing for Piper Plus
 
 LiteRT-LM:
 

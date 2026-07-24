@@ -49,8 +49,8 @@ Android 版でも、主要機能には以下が必要です。
 - ｽﾀｯｸﾁｬﾝ本体
 - `stackchan-pet-fw`
 - Android 端末
-- ｽﾀｯｸﾁｬﾝ本体と Android 端末が接続できる Wi-Fi 環境、または Stack-chan SoftAP
-- ローカルで会話を試す場合は、LiteRT-LM 用の `.litertlm` モデルファイル
+- ｽﾀｯｸﾁｬﾝ本体と Android 端末が接続できる Wi-Fi 環境、Stack-chan SoftAP、または USB Serial 接続
+- ローカルで会話を試す場合は、LiteRT-LM 用の `.litertlm` または llama.cpp 用の `.gguf` モデルファイル
 - Piper Plus で音声合成を試す場合は、`.onnx` 音声モデルと対応する `.json` 設定ファイル
 
 対応ファームウェア:
@@ -60,11 +60,11 @@ https://github.com/Corvelis/stackchan-pet-fw
 ## Androidで確認してほしいこと
 
 - アプリのインストールと起動
-- ｽﾀｯｸﾁｬﾝ本体への SoftAP / Wi-Fi IP 接続
+- ｽﾀｯｸﾁｬﾝ本体への SoftAP / Wi-Fi IP / USB Serial 接続
 - テキスト会話
 - マイクボタンからの音声入力
 - Piper Plus による音声合成
-- LiteRT-LM / Gemma 4 E2B によるローカルLLM会話
+- LiteRT-LM または llama.cpp によるローカルLLM会話
 - モデルファイル選択画面の挙動
 - Android端末ごとのクラッシュ、発熱、動作の重さ
 
@@ -77,6 +77,7 @@ https://github.com/Corvelis/stackchan-pet-fw
 - ネットワーク接続: ｽﾀｯｸﾁｬﾝ本体や外部APIへ接続するため
 - マイク: 音声入力を使う場合
 - カメラ/写真/ファイル: 任意の画像機能やモデルファイル選択を使う場合
+- USB: USB Serial で Stack-chan と接続する場合
 - 通知: Androidのバックグラウンド会話を使う場合
 
 Androidは端末メーカーごとの省電力設定が強い場合があります。バックグラウンド会話が止まる場合は、端末のバッテリー最適化やバックグラウンド制限を確認してください。

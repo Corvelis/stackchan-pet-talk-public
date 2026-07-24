@@ -9,8 +9,8 @@ This guide is for first-time testers of StackChan Pet Talk.
 - A Stack-chan device
 - `stackchan-pet-fw`
 - An iPhone or Android phone
-- A Wi-Fi environment where the phone can reach Stack-chan, or Stack-chan SoftAP
-- For local conversation, a LiteRT-LM `.litertlm` model file
+- Wi-Fi where the phone can reach Stack-chan, Stack-chan SoftAP, or USB Serial on Android
+- For local conversation, a LiteRT-LM `.litertlm` or llama.cpp `.gguf` model file
 - For Piper Plus speech output, a `.onnx` voice model and matching `.json` config file
 
 Compatible firmware:
@@ -51,20 +51,24 @@ Common connection modes:
 | --- | --- |
 | SoftAP | Connect your phone to Stack-chan Wi-Fi. The usual Host is `192.168.4.1`, and the usual Port is `8080`. |
 | Wi-Fi IP | Connect Stack-chan and your phone to the same Wi-Fi network, then enter the Stack-chan IP address. |
+| USB Serial (Android only) | Connect a compatible Stack-chan to the Android phone with USB. The Port field is the baud rate, usually `921600`. |
 
 ## 4. Connect from the App
 
 1. Launch `StackChan Pet Talk`.
 2. Choose the connection mode.
-3. Check Host and Port.
-4. Tap `Connect`.
-5. When the connection succeeds, the app opens the conversation screen.
+3. Under `Character mode`, choose `Shared` to use one character with every Stack-chan, or `Per device` to keep a separate character for each device.
+4. Check Host and Port.
+5. Tap `Connect`.
+6. When the connection succeeds, the app opens the conversation screen.
 
 Without a reachable Stack-chan device, the app cannot proceed to the main conversation screen.
 
 ## 5. Prepare a Local LLM
 
 To test local conversation, prepare a LiteRT-LM model file first.
+
+You can also use a llama.cpp GGUF model. For either LiteRT-LM or llama.cpp, the selected model is imported into app-managed storage. See [Model, Dictionary, and Runtime Downloads](model-downloads.md) for the differences and llama.cpp setup.
 
 Recommended first model:
 
@@ -166,7 +170,7 @@ App settings:
 2. Select `Piper Plus` as the `TTS engine`.
 3. Select `css10-ja-6lang-fp16.onnx` from `Piper Plus model (.onnx)`.
 4. Select `config.json` from `Piper Plus config (.json)`.
-5. Use warmup, test speech, or a short conversation to confirm audio output.
+5. Check `Warmup text`, then tap `Warm up TTS` to confirm audio output.
 
 If you cannot find the downloaded file on iPhone, check `Files > iCloud Drive > Downloads` or `Files > On My iPhone > Downloads`. If the file is named `config.json.txt` or `config.json.download`, long-press it, choose rename, and change the name to `config.json`.
 
@@ -176,8 +180,15 @@ Notes:
 - When testing from a phone only, start with the `.onnx` and `config.json` pair listed above.
 - If you can prepare files on a PC, you can also use `piper-plus-base` with `piper --download-model base`.
 - If you use a character-specific voice such as Tsukuyomi-chan, check the model provider's terms and [Voice Model Usage Notes](voice-model-terms.md) first.
+- Enable `Robot-style voice` to process the synthesized voice with adjustable speed, base F0, and intonation.
 
 For download details, see [Model, Dictionary, and Runtime Downloads](model-downloads.md).
+
+### Using Style-Bert-VITS2 on iPhone
+
+On iPhone, the app can run a converted Style-Bert-VITS2 model on the device. In `Settings > Voice AI`, select `Style-Bert-VITS2 (iPhone CoreML)` as the TTS engine, then separately select the BERT folder and VITS2 folder prepared by the distributor.
+
+This does not accept an ordinary distributed model as-is. It requires a model package already converted to the supported split ONNX / Core ML format. See [Model, Dictionary, and Runtime Downloads](model-downloads.md) for details.
 
 ## 7. Start Testing
 
@@ -187,6 +198,8 @@ When the connection succeeds, the app opens the conversation screen. After LLM a
 2. Tap the send button.
 3. Check whether the reply appears in the conversation history.
 4. If TTS is enabled, check whether Stack-chan plays the reply audio.
+
+When using an image-capable LLM, use the image attachment button beside the input field to choose the phone camera, photo library, or a compatible Stack-chan camera. The image is attached to the next message.
 
 Recommended first messages:
 

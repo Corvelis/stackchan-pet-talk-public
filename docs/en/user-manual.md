@@ -1,6 +1,6 @@
 # StackChan Pet Talk User Guide
 
-Last updated: 2026-05-31
+Last updated: 2026-07-23
 
 This guide is for first-time users of `StackChan Pet Talk`. It assumes a
 limited beta build distributed through TestFlight or Google Play closed testing.
@@ -27,10 +27,13 @@ Required for voice and image features:
 - Stack-chan camera HTTP `POST /capture` for visual questions, face enrollment,
   face checks, and camera button reactions.
 - JSON events such as `interaction.event` or `camera_button` from Stack-chan
-  when using petting, touch, or camera button reactions.
+  when using petting, touch, shake, or camera button reactions.
+- Compatible firmware that reports device information and capabilities when
+  using per-device characters, step count integration, or TTS speech bubbles.
 
 If you use local models or dictionaries, read [Model, Dictionary, and Runtime Downloads](model-downloads.md)
-first. It lists Piper Plus voice models, OpenJTalk dictionaries, llama.cpp
+first. It lists Piper Plus voice models, Style-Bert-VITS2 for iPhone,
+OpenJTalk dictionaries, llama.cpp
 GGUF files, LiteRT-LM `.litertlm` files, bundled model/runtime sources, and
 license checks.
 
@@ -57,6 +60,9 @@ Main features:
 - Stack-chan camera/capture button reactions
 - Connection greeting voice lines when TTS is available
 - Petting/touch reactions
+- Shake reactions and step-based connection voice lines
+- Image attachments from the phone camera, photo library, or Stack-chan camera
+- Shared or per-device character settings
 - Stack-chan StreetPass history sync and profile editing
 - Memory logs and diary generation. See [Memories And Diary](diary.md) for details.
 
@@ -82,6 +88,10 @@ Main features:
 
 After launch, choose how to connect to Stack-chan.
 
+Under `Character mode`, choose `Shared` to use one character with every
+Stack-chan, or `Per device` to keep character settings, affection, and memories
+separate for each connected device.
+
 ### SoftAP
 
 1. Put Stack-chan into SoftAP mode.
@@ -98,8 +108,16 @@ After launch, choose how to connect to Stack-chan.
 4. Enter the Port. The usual value is `8080`.
 5. Tap `Connect`.
 
+### USB Serial (Android Only)
+
+1. Connect a compatible Stack-chan to the Android phone with a USB cable.
+2. Select `USB Serial` in the app.
+3. Check the baud rate in the Port field. The usual value is `921600`.
+4. Tap `Connect` and allow USB device access if Android asks.
+
 When the connection succeeds, the app opens the conversation screen. If it
-fails, check Host, Port, your phone Wi-Fi, and the Stack-chan WebSocket setup.
+fails, check Host, Port, Wi-Fi, USB cable and permission, or Stack-chan-side
+communication settings as appropriate for the selected connection mode.
 
 If TTS is enabled, the app plays one connection greeting voice line only when
 you connect from the first connection screen. It does not play this greeting for
@@ -130,19 +148,27 @@ Middle area:
 - Mood
 - Confusion
 - Conversation history
-- Error and event logs
+- Errors, event logs, and the active LLM model name
 
 Bottom area:
 
 - Text input
 - Send button
 - Microphone button
+- Image attachment button
 
 To talk by text, type a message and send it. To talk by voice, configure LLM
 and TTS first, return to the conversation screen, and tap the microphone button
 at the bottom of the screen. When speech input starts, speak to Stack-chan, then
 check the speech recognition result, the LLM reply, and the reply audio from
 Stack-chan.
+
+Tap the arrow button next to the conversation history heading to collapse the
+connection status, Stack-chan state, affection, mood, confusion, event logs,
+and other status information, giving the conversation history more space.
+The status area also shows the active LLM model. Cloud providers such as Gemini
+and OpenAI use a name such as `Gemini 3.6 Flash`, while local LLMs show the model
+file name.
 
 To clear the conversation history, tap the delete button next to the history
 heading.
@@ -154,10 +180,23 @@ Use the `JA` / `EN` button in the app bar to switch the UI language.
 
 ### Asking About Images
 
-When `Camera master check` is enabled in master recognition settings, questions
-that require an image can trigger Stack-chan camera capture. For example,
-questions such as "Can you see this?" or "Look at what is in front of you" can
-start capture and recognition.
+Tap the image attachment button beside the input field to choose an image source:
+
+- `Phone camera`: Take a new photo.
+- `Photo library`: Choose an image stored on the phone.
+- `Device camera`: Capture an image with the connected Stack-chan when its
+  camera is available.
+
+The selected image is marked `Ready for the next message` and is attached to
+the next text you send. Answering questions about it requires an image-capable
+LLM and, for llama.cpp, a matching mmproj.
+For llama.cpp, adjust the image size under
+`Settings > LLM > VLM input image max edge`.
+
+In addition, when `Camera master check` is enabled in master recognition
+settings, questions that require an image can automatically trigger Stack-chan
+camera capture. For example, questions such as "Can you see this?" or "Look at
+what is in front of you" can start capture and recognition.
 
 When `VLM fallback response` is enabled, the same image is sent to the VLM when
 the master face does not match or no face is found.
@@ -167,8 +206,9 @@ the master face does not match or no face is found.
 When the app receives a camera/capture button event from Stack-chan, it starts a
 short visual-description conversation using the captured image.
 
-When the app receives a petting event, it reacts with a voice line for the
-current affection level.
+When the app receives a petting, touch, `pat`, or `pet` event, it reacts with a
+voice line for the current affection level. A `shake` or `start` event uses one
+of the character's `Voice line when shaken` entries.
 
 ## 5. Connection Settings
 
@@ -180,6 +220,7 @@ Settings:
 - `USB Serial` on Android
 - Host
 - Port
+- Character mode (`Shared` / `Per device`)
 - Connect
 - Disconnect
 
@@ -188,6 +229,10 @@ After changing the connection mode or IP address, tap `Connect` again.
 USB Serial is available only on Android. In USB Serial mode, the Port field
 shows the baud rate, usually `921600`. This is handled separately from the
 Wi-Fi IP port.
+
+In `Per device` mode, the app uses the device ID reported by compatible firmware
+to switch character settings and memories. If settings or diaries appear to be
+missing after connecting to another Stack-chan, check this mode.
 
 ## 6. StreetPass
 
@@ -332,12 +377,22 @@ Choose a text-to-speech engine:
 
 - Disabled
 - Piper Plus
+- Style-Bert-VITS2 (iPhone CoreML, iOS only)
 - OpenAI TTS
 - Irodori TTS server
 
+Enable `Skip parenthesized text` to keep half-width `(...)`, full-width
+`（...）`, and their contents out of TTS. The reply shown on the conversation
+screen is unchanged; only the spoken text is filtered. This applies to both
+normal and streaming replies.
+
 For Piper Plus, select a model file `.onnx` and a config file `.json`. You can
-adjust Japanese length, English length, noise scale, and noise W. Tap
-`Warm up: こんにちは` to test playback.
+adjust Japanese length, English length, noise scale, and noise W. Enable
+`Robot-style voice` to process the output with adjustable speed (0.5x to 4.0x),
+base F0 (50 to 500 Hz), and intonation (0 to 1).
+
+Enter a phrase under `Warmup text`, then tap `Warm up TTS` to test the current
+TTS settings.
 
 When testing from a phone only, start with this file pair:
 
@@ -354,6 +409,28 @@ card, and provider terms first.
 For the Piper Plus download command, OpenJTalk dictionary URL, and file
 placement, see [Model, Dictionary, and Runtime Downloads](model-downloads.md).
 
+The selected model and config are imported into app-managed storage. The
+imported copies remain usable if the original files are moved or deleted.
+
+#### Style-Bert-VITS2 (iPhone CoreML)
+
+On iPhone, the app can run a Style-Bert-VITS2 model that has already been
+converted to the supported split ONNX / Core ML format.
+
+Settings:
+
+- `BERT folder`: A folder containing the converted BERT model files.
+- `VITS2 folder`: A folder containing one or more converted voices.
+- `Voice`: A voice detected in the VITS2 folder.
+- `Speaker ID`: The speaker ID to use.
+- `Style`: A style included by the model, such as `Neutral`.
+- `Speech speed`: Adjustable from 0.5x to 2.0x.
+
+Select the BERT and VITS2 folders separately. They are copied into the app when
+first selected. Ordinary unconverted models cannot be selected directly. Use a
+compatible model prepared by the distributor, and review its model-specific
+license and usage terms.
+
 #### OpenAI TTS
 
 To use OpenAI TTS, choose `OpenAI TTS` as the TTS engine.
@@ -369,11 +446,17 @@ Settings:
 - `Speech speed`: Adjust playback speed.
 - `Speech gap`: Gap between punctuation-based audio segments. The default is `50ms`.
 
-OpenAI TTS and Irodori TTS split LLM replies around punctuation, synthesize the
-next segment while the current one is playing, and preserve playback order. The
-app lightly trims leading and trailing silence from returned audio. Increase
-`Speech gap` if replies feel too fast, or decrease it if the pause feels too
-long.
+Streaming replies treat `。`, `！`, `？`, `!`, and `?` as speech boundaries.
+Piper Plus and Style-Bert-VITS2 insert a 100ms gap between these audio
+segments. OpenAI TTS and Irodori TTS use the configured `Speech gap` and
+synthesize the next segment while the current one is playing. Playback order
+is preserved, and the app lightly trims leading and trailing silence from
+returned audio. Increase `Speech gap` if replies feel too fast, or decrease it
+if the pause feels too long.
+
+When compatible firmware reports `display.speech_bubble.v1`, the app sends each
+segmented utterance to Stack-chan and synchronizes the speech bubble with audio
+start, completion, and cancellation.
 
 #### Irodori TTS Server
 
@@ -419,6 +502,14 @@ API providers use settings such as Base URL, model name, and API key. Local LLM
 providers use a model file and generation settings such as max tokens,
 temperature, topK, topP, context size, batch size, and thread count.
 
+For OpenAI API, you can select GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna,
+GPT-5.5, GPT-5.4, GPT-5.4 mini, and GPT-5.4 nano. Choose `Other` to enter a
+model ID that is not in the list.
+
+For Gemini API, you can select Gemini 3.6 Flash, Gemini 3.5 Flash, Gemini 3.5
+Flash-Lite, Gemini 3.1 Flash-Lite, and Gemini 3 Flash Preview. Compatible
+models let you choose the thinking level from minimal, low, medium, or high.
+
 Set Base URL to the PC LAN IP, for example `http://192.168.0.10:8080/v1`.
 
 `Conversation history for LLM` controls how many past turns are sent to the LLM.
@@ -436,7 +527,21 @@ conversation history used by the local LLM is adjusted automatically for the
 selected local backend.
 
 For llama.cpp, select a GGUF model file. If you use a vision-capable model,
-select an mmproj file as well. For LiteRT-LM, the current app implementation
+select an mmproj file as well. `VLM input image max edge` offers `Original
+size`, `128px`, `256px`, `384px`, `512px`, `768px`, `1024px`, `1536px`, and
+`2048px`; the default is `2048px`. Images are downscaled while preserving their
+aspect ratio, and images already below the limit are not enlarged. A smaller
+value reduces processing time and memory use but may lose fine detail or small
+text. `Original size` skips this app-side downscaling, although the model or
+mmproj may still transform the image during preprocessing.
+
+The current llama.cpp runtime also supports compatible GGUF models such as
+Bonsai 27B and Agents-A1-4B. Select their model files in the same way as other
+GGUF models. Available quantizations, memory requirements, and performance
+depend on the model and phone. Start with a smaller quantization on a
+smartphone.
+
+For LiteRT-LM, the current app implementation
 selects a `.litertlm` model file. `.task` files are not selectable in this
 screen. When testing a local LLM from a smartphone, start with Gemma 4 E2B
 `gemma-4-E2B-it.litertlm`.
@@ -450,6 +555,14 @@ When llama.cpp uses GPU, adjust the GPU layer count. Lower it if Metal crashes.
 llama.cpp and LiteRT-LM provide warmup buttons. Use them to confirm that the
 model loads correctly. LiteRT-LM also has `VLM image warmup`, which verifies
 initialization with image input.
+
+Selected GGUF, LiteRT-LM, and mmproj files are imported into app-managed
+storage. `Clear imported LLM files` removes the local LLM files and saved model
+paths from the app, but does not delete the original external files.
+
+`gpt-oss Flash MoE pack` and `LLM Debug Chat` are limited to special
+development builds. Their settings and screens are not shown and cannot be
+used in normal TestFlight or Google Play builds.
 
 ## 9. Master Recognition
 
@@ -510,17 +623,23 @@ Affection tab:
 
 Voice reactions tab:
 
+- Voice line when shaken
 - Voice line when petted for each affection level
 - Voice line when connected for each affection level
+- Enable/disable `Step-based connection voice` and edit candidates by step range
 - Add and delete reaction voice lines
 
 Tap `Save` after editing. Tap `Reset defaults` to reset the current tab.
 
 The petting voice lines are used when Stack-chan sends petting or touch events.
+The shaken voice lines are used when Stack-chan sends `shake` or `start` events.
 Connection greeting voice lines are used for the greeting played after
 connecting from the first connection screen. When camera master check is
 enabled, the app applies the recognition result before choosing from the
 affection-level candidates.
+Step-based connection voice lines are used above 1,000 steps when the step range
+has changed since the previous connection on the same day. This requires step
+data from compatible firmware.
 Master-found voice lines are edited from
 `Settings > Master recognition > Master found reactions`.
 
@@ -541,6 +660,11 @@ notification.
 Use the `Memories` icon on the conversation screen to review logs, photos, and
 diaries by date.
 
+When compatible firmware reports steps, the screen also shows the daily step
+count. From photo details, you can save an image to the phone's photo library.
+In `Per device` character mode, memories and diaries are shown for the currently
+connected character.
+
 A diary can be generated when the selected day has at least 5 eligible
 conversation or photo logs. In `Settings > Memories and diary`, you can adjust
 auto generation, diary boundary time, master-only filtering, photo saving,
@@ -552,6 +676,14 @@ See [Memories And Diary](diary.md) for detailed usage.
 
 Open `Settings > Debug` to temporarily change affection for the current
 session.
+
+For step greeting checks, a debug option can repeat the voice on every
+connection even when the same step range was already used that day.
+
+Special development builds may show `LLM Debug Chat`. This developer tool can
+test llama.cpp directly without connecting to Stack-chan and, when the runtime
+reports them, show prefill/decode speed and memory information. It is not shown
+in normal distribution builds.
 
 This is for behavior checks. Normal users do not need to change it.
 

@@ -1,6 +1,6 @@
 # Memories And Diary
 
-Last updated: 2026-06-07
+Last updated: 2026-07-20
 
 `StackChan Pet Talk` can save conversations, photos, petting events, master recognition events, and related records as memories. From those memories, the app can write a diary entry from Stack-chan's point of view for a selected day.
 
@@ -10,6 +10,7 @@ You do not need to understand the implementation to use the diary feature. Howev
 
 - Choose a date from the memory calendar
 - Review conversations, event logs, and photos from that day
+- View the daily step count reported by a compatible Stack-chan
 - Use the selected LLM to write a Stack-chan-style diary
 - View an existing diary
 - Regenerate an existing diary
@@ -27,6 +28,14 @@ At least 5 eligible conversation or photo logs are required to write a diary. If
 4. Switch between `Diary`, `Log`, and `Photos`.
 
 The calendar marks days that have memory logs. When the screen opens, it selects "today" based on the configured diary boundary time.
+
+When a compatible Stack-chan reports steps, the screen also shows the daily
+step count. Steps currently do not count toward the five required logs and are
+not included as diary-generation material.
+
+Memories and diaries belong to the currently selected character. In `Per device`
+character mode, switching the connection target also switches the memories shown
+to those for that device's character.
 
 ## 3. Write A Diary
 
@@ -52,9 +61,15 @@ Regenerating can produce different wording from the same logs because LLM settin
 
 ## 5. Review Logs And Photos
 
-The `Log` tab shows conversations and events from the selected day in chronological order.
+The `Log` tab shows conversations, petting, master recognition, steps, and other
+events from the selected day in chronological order.
 
-The `Photos` tab shows photos saved as memories. You can open a photo for details or hide photos you no longer need.
+The `Photos` tab shows photos saved as memories. You can open a photo for details,
+save it to the phone's photo library, or hide photos you no longer need.
+
+From the image button on the conversation screen, you can attach an image from
+the phone camera, photo library, or a compatible Stack-chan camera to the next
+message. Camera or photo permissions may be required.
 
 To include captured photos in diary material, enable `Settings > Memories and diary > Save captured images to memories`. The diary mainly uses text photo notes and image recognition results as material.
 

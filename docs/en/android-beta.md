@@ -49,8 +49,8 @@ The Android version requires:
 - A Stack-chan device
 - `stackchan-pet-fw`
 - An Android phone
-- A Wi-Fi environment where the Android phone can reach Stack-chan, or Stack-chan SoftAP
-- For local conversation, a LiteRT-LM `.litertlm` model file
+- Wi-Fi where the Android phone can reach Stack-chan, Stack-chan SoftAP, or USB Serial
+- For local conversation, a LiteRT-LM `.litertlm` or llama.cpp `.gguf` model file
 - For Piper Plus speech output, a `.onnx` voice model and matching `.json` config file
 
 Compatible firmware:
@@ -64,6 +64,7 @@ The app may request permissions depending on which features you use.
 - Network access: required to connect to Stack-chan or external APIs
 - Microphone: used for voice input
 - Camera/photos/files: used for optional image features or model file selection
+- USB: used when connecting to Stack-chan over USB Serial
 - Notifications: used when Android background conversation is enabled
 
 Android battery management varies by manufacturer. If background conversation stops unexpectedly, check battery optimization and background restriction settings on the device.

@@ -37,9 +37,10 @@ See [Android Beta](docs/en/android-beta.md) for the installation steps.
 - A Stack-chan device
 - `stackchan-pet-fw`
 - An iPhone or Android phone
-- A Wi-Fi environment where the phone can reach Stack-chan, or Stack-chan SoftAP
-- For local conversation, a LiteRT-LM `.litertlm` model file
+- Wi-Fi where the phone can reach Stack-chan, Stack-chan SoftAP, or USB Serial on Android
+- For local conversation, a LiteRT-LM `.litertlm` or llama.cpp `.gguf` model file
 - For Piper Plus speech output, a `.onnx` voice model and matching `.json` config file
+- For Style-Bert-VITS2 on iPhone, converted BERT and VITS2 model folders
 
 Compatible firmware:
 

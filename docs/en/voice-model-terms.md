@@ -2,7 +2,21 @@
 
 [Back to README](../../README_en.md) | [日本語](../ja/voice-model-terms.md)
 
-StackChan Pet Talk lets users select Piper Plus voice models. Each voice model may have its own license and usage terms. Before use, check the model card and the provider's terms.
+StackChan Pet Talk lets users select Piper Plus voice models and converted
+Style-Bert-VITS2 models on iPhone. Each voice model may have its own license and
+usage terms. Before use, check the model card and the provider's terms.
+
+## Style-Bert-VITS2 Voice Models
+
+Style-Bert-VITS2 uses BERT and VITS2 folders converted for this app by a
+distributor. The source-model license, speaker or character terms, generated
+voice publication terms, and redistribution terms for converted files vary by
+model.
+
+When receiving or redistributing a converted model, check the source,
+attribution requirements, commercial-use terms, and whether redistribution is
+allowed. A model being technically loadable by the app does not grant permission
+to use or redistribute it.
 
 ## Tsukuyomi-chan Voice Model
 

@@ -111,6 +111,29 @@ dictionary from the UI. If you recommend a Japanese OpenJTalk-based Piper Plus
 model, the distributor should either provide a build with the dictionary bundled
 or clearly state that the voice cannot be used without the dictionary.
 
+### Style-Bert-VITS2 (iPhone / Core ML)
+
+Use this when:
+
+- `Settings > Voice AI > TTS engine > Style-Bert-VITS2`
+
+Required files:
+
+- A converted and split BERT folder for Core ML
+- A converted and split VITS2 voice folder for Core ML
+
+In the app, use `BERT folder` and `VITS2 folder` to select the two folders
+separately. If the VITS2 folder contains multiple speakers or styles, you can
+choose the voice, speaker, style, and speech speed after import.
+
+An ordinary Style-Bert-VITS2 model cannot be selected as-is. The distributor
+must first convert it to the Core ML format supported by the iPhone
+implementation and prepare the required BERT and VITS2 files as folders. The app
+does not download or convert these models.
+
+Licenses and speaker or character usage terms vary by model. Before distribution
+or use, review the source model card, voice usage terms, and redistribution terms.
+
 ### LiteRT-LM Local LLM
 
 Use this when:
@@ -154,6 +177,9 @@ as needed.
 In the TestFlight version, choose `LiteRT-LM` from `Settings > LLM`, then select
 this file from `LiteRT-LM model file (.litertlm)`.
 
+The selected model is imported into app-managed storage. After import completes,
+the app uses its copy even if the original file is moved or deleted.
+
 ### llama.cpp Local LLM
 
 Use this when:
@@ -174,6 +200,14 @@ Gemma 4 E2B GGUF example:
 - Text model example: `google-gemma-4-E2B-it-Q4_K_M.gguf`
 - VLM projector example: `mmproj-BF16.gguf`
 
+Examples of GGUF compatibility added in this version:
+
+- Bonsai 27B
+- Agents-A1-4B
+
+Prepare a compatible GGUF from its distributor and select it under
+`GGUF model file`. These model files are not bundled with the app.
+
 Example placement:
 
 ```text
@@ -191,6 +225,10 @@ How to choose:
 - Do not mix the main GGUF and mmproj from different models or revisions.
 - In the TestFlight version, choose `llama.cpp` from `Settings > LLM`, then
   select `GGUF model file` and `mmproj` if needed.
+- The selected GGUF and mmproj are imported into app-managed storage.
+
+`Clear imported LLM files` removes the model copies and saved selections from
+app-managed storage. It does not delete the original downloaded files.
 
 Notes:
 
@@ -198,6 +236,8 @@ Notes:
 - Check the upstream model license, conversion source, quantization conditions,
   and commercial-use terms.
 - On smartphones, starting with a smaller Q4 quantization is practical.
+- Large models such as Bonsai 27B may require substantial memory even with
+  aggressive quantization.
 - Large GGUF or mmproj files can cause memory issues or slow first loads.
 
 ### Cloud API / PC Server
