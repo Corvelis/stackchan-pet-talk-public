@@ -1,6 +1,6 @@
 # Privacy
 
-`StackChan Pet Talk` is a local-first Stack-chan conversation app for public
+`StackChan Pet Talk` is a local-first Stack-chan conversation app for limited
 beta distribution.
 
 ## Local Processing
@@ -92,5 +92,5 @@ and model paths. API keys are stored through secure storage where supported.
 
 ## Bundled Models
 
-Public beta builds may bundle model, dictionary, and runtime files. The in-app
+Limited beta builds may bundle model, dictionary, and runtime files. The in-app
 Licenses screen lists bundled model and runtime notices.

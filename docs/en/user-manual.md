@@ -2,8 +2,8 @@
 
 Last updated: 2026-08-01
 
-This guide is for first-time users of `StackChan Pet Talk`. It assumes a beta
-build distributed through TestFlight or Google Play open testing.
+This guide is for first-time users of `StackChan Pet Talk`. It assumes a
+limited beta build distributed through TestFlight or Google Play closed testing.
 
 ## 0. What To Prepare First
 
@@ -77,10 +77,11 @@ Main features:
 
 ### Android
 
-1. Open the Google Play open-testing opt-in link.
-2. Tap `Become a tester`.
-3. Install `StackChan Pet Talk` from Google Play.
-4. Android may ask for notification permission or battery optimization changes.
+1. Join the Android beta Google Group.
+2. Open the Google Play closed testing opt-in link.
+3. Tap `Become a tester`.
+4. Install `StackChan Pet Talk` from Google Play.
+5. Android may ask for notification permission or battery optimization changes.
    Allow them if you want to use background conversation.
 
 ## 3. First Connection

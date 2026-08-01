@@ -16,7 +16,11 @@ https://testflight.apple.com/join/Tt1Z4xpT
 
 ### Android
 
-Android 版は Google Play の公開テストで配布しています。Googleグループへの登録や個別承認は不要です。
+Android 版は Google Play のクローズドテストで配布しています。
+
+Googleグループ:
+
+https://groups.google.com/g/stackchan-pet-talk-android-beta
 
 テスト参加リンク:
 

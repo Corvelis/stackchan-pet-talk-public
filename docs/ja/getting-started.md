@@ -34,9 +34,10 @@ iPhone の場合:
 Android の場合:
 
 1. [Android ベータ版について](android-beta.md) を開きます。
-2. Google Play の公開テスト参加リンクを開きます。
-3. `テスターになる` を押します。
-4. Google Play から `StackChan Pet Talk` をインストールします。
+2. Androidベータ用のGoogleグループに参加します。
+3. Google Play のテスト参加リンクを開きます。
+4. `テスターになる` を押します。
+5. Google Play から `StackChan Pet Talk` をインストールします。
 
 ## 3. ｽﾀｯｸﾁｬﾝ本体を準備する
 

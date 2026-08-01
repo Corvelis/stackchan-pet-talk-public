@@ -3,7 +3,7 @@
 Japanese: [model-downloads.md](../ja/model-downloads.md)
 
 Git-tracked source does not include user-selected voice models, local LLM
-models, SDK drops, or arbitrary prebuilt binaries. Public beta builds only
+models, SDK drops, or arbitrary prebuilt binaries. Limited beta builds only
 bundle models, dictionaries, and runtime files approved in
 `distribution/model_manifest.yaml`.
 

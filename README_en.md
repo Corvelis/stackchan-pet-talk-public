@@ -16,8 +16,11 @@ See [iPhone / TestFlight Beta](docs/en/ios-testflight.md) for the installation s
 
 ### Android
 
-The Android beta is distributed through Google Play open testing. No Google
-Group membership or individual approval is required.
+The Android beta is distributed through Google Play closed testing.
+
+Google Group:
+
+https://groups.google.com/g/stackchan-pet-talk-android-beta
 
 Test opt-in link:
 

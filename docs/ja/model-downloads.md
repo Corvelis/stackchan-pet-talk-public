@@ -4,7 +4,7 @@ English: [model-downloads.md](../en/model-downloads.md)
 
 Git 管理されたソースには、ユーザーが選択して使う音声モデル、ローカル
 LLM モデル、SDK 一式、任意の事前ビルドバイナリは含めません。
-公開ベータビルドでは、`distribution/model_manifest.yaml` で承認された
+限定ベータビルドでは、`distribution/model_manifest.yaml` で承認された
 モデル、辞書、ランタイムだけを同梱対象にします。
 
 この文書では、次の 2 種類を分けて扱います。

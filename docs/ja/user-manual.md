@@ -3,7 +3,7 @@
 最終更新日: 2026-08-01
 
 このガイドは、`StackChan Pet Talk` を初めて使う方向けの手順書です。
-TestFlight または Google Play 公開テストで配布されるベータ版を前提にしています。
+TestFlight または Google Play クローズドテストで配布される限定ベータ版を前提にしています。
 
 ## 0. 使う前に用意するもの
 
@@ -66,10 +66,11 @@ Piper Plus 音声モデル、iPhone 用 Style-Bert-VITS2、OpenJTalk 辞書、ll
 
 ### Android
 
-1. Google Play の公開テスト参加リンクを開きます。
-2. `テスターになる` を押します。
-3. Google Play から `StackChan Pet Talk` をインストールします。
-4. Android では、通知権限やバッテリー最適化の確認が表示される場合があります。
+1. Androidベータ用のGoogleグループに参加します。
+2. Google Play のクローズドテスト参加リンクを開きます。
+3. `テスターになる` を押します。
+4. Google Play から `StackChan Pet Talk` をインストールします。
+5. Android では、通知権限やバッテリー最適化の確認が表示される場合があります。
    バックグラウンド会話を使う場合は許可してください。
 
 ## 3. 初回接続

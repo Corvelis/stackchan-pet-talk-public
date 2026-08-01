@@ -1,18 +1,18 @@
 # Third-Party Licenses and Notices
 
 This file records third-party software, model, dictionary, and runtime
-components included or used by StackChan Pet Talk public beta builds.
+components included or used by StackChan Pet Talk limited beta builds.
 
 The app source code is licensed under the Apache License, Version 2.0. See
 `LICENSE` and `NOTICE`.
 
 ## Bundled Models, Dictionaries, and Runtimes
 
-The public beta build may bundle the files listed in
+The limited beta build may bundle the files listed in
 `distribution/model_manifest.yaml`. That manifest records file paths, sizes,
 SHA-256 hashes, source URLs, license names, and bundle status.
 
-Approved public-beta bundled groups:
+Approved bundled beta groups:
 
 - ReazonSpeech k2 v2 ONNX models: Apache-2.0
 - Silero VAD ONNX model: MIT
