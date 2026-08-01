@@ -42,7 +42,8 @@ server.
 ## Camera and Microphone
 
 The app uses Stack-chan camera and microphone data for conversation, ASR, TTS
-coordination, and optional master recognition.
+coordination, and optional master recognition. It also uses the phone camera
+when the user attaches an image or configures StopWatch remote capture.
 
 - Face enrollment captures an image, extracts an embedding, and stores the
   embedding. Captured images are temporary implementation data and are not
@@ -52,6 +53,12 @@ coordination, and optional master recognition.
   stored as a persistent user record.
 - VLM fallback may pass a captured image to the selected LLM provider when the
   user enables that path and asks a visual question.
+- StopWatch remote capture can open the phone camera in response to compatible
+  firmware after the user configures the camera. Capture is available only
+  while the app is in the foreground.
+- A remotely captured photo is saved to the photo library and held temporarily
+  as the image attachment for the next conversation. If the image is sent in a
+  conversation, it may be passed to the selected LLM provider.
 
 ## Background Conversation
 
@@ -61,12 +68,29 @@ conversation can continue while the app is not in the foreground.
 
 ## Conversation History and Settings
 
-The app keeps lightweight conversation history in memory for the current
-session and uses saved settings for providers, prompts, recognition thresholds,
+The app may store conversation, photo, petting, master-recognition, and
+affection interaction logs on the device for the Memories and Diary features.
+Stored history is used for day-by-day review, photo display, diary generation,
+and diary regeneration.
+
+Captured images may be stored on the device for memories. This includes images
+captured for visual conversations, camera-button captures, and images captured
+for master checks during petting or connection greetings. Recognition images
+may be throttled to avoid saving many near-duplicate captures. Images captured
+only for recognition are generally not saved when no face is found or the
+person is not recognized as the master.
+
+Diary generation uses conversation history, photo notes linked to images,
+petting and recognition records, character settings, and affection state. By
+default, diary generation does not send image files themselves to an LLM; it
+uses photo notes and related conversation text. If you choose an external LLM
+provider, these text details may be sent to that provider when generating or
+regenerating a diary.
+
+The app also stores settings for providers, prompts, recognition thresholds,
 and model paths. API keys are stored through secure storage where supported.
 
 ## Bundled Models
 
-Limited beta builds may bundle model, dictionary, and runtime files listed in
-`distribution/model_manifest.yaml`. The in-app Licenses screen lists bundled
-model and runtime notices.
+Limited beta builds may bundle model, dictionary, and runtime files. The in-app
+Licenses screen lists bundled model and runtime notices.

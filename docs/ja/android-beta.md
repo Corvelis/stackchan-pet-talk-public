@@ -65,6 +65,9 @@ https://github.com/Corvelis/stackchan-pet-fw
 - マイクボタンからの音声入力
 - Piper Plus による音声合成
 - LiteRT-LM または llama.cpp によるローカルLLM会話
+- StopWatchからのスマートフォンカメラ遠隔撮影
+- 対応するQualcomm Adreno端末でのllama.cpp OpenCL GPU実行
+- VLM画像先行処理と会話ストリーミング表示
 - モデルファイル選択画面の挙動
 - Android端末ごとのクラッシュ、発熱、動作の重さ
 

@@ -51,6 +51,7 @@ Known runtime or native dependencies include:
 - DKImagePickerController / DKPhotoGallery / SDWebImage / SwiftyGif: MIT
 - AndroidX Concurrent Futures: Apache-2.0
 - llama.cpp / ggml: MIT
+- Khronos OpenCL Headers and ICD Loader link SDK: Apache-2.0
 - nlohmann/json: MIT
 - utf8-cpp: permissive license by Nemanja Trifunovic
 - WORLD: modified BSD
@@ -106,6 +107,14 @@ LiteRT-LM:
 - Source: https://github.com/google-ai-edge/LiteRT-LM
 - License: Apache-2.0
 - Purpose: local LLM runtime
+
+Khronos OpenCL Headers and ICD Loader:
+
+- Source: https://github.com/KhronosGroup/OpenCL-Headers and
+  https://github.com/KhronosGroup/OpenCL-ICD-Loader
+- License: Apache-2.0
+- Purpose: build-time headers and link SDK for the Android llama.cpp OpenCL
+  backend; the generic ICD loader itself is not bundled in the APK or AAB
 
 ONNX Runtime:
 

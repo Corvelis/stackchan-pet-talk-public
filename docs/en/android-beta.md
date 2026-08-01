@@ -57,6 +57,17 @@ Compatible firmware:
 
 https://github.com/Corvelis/stackchan-pet-fw
 
+## What to Test
+
+- Installation and startup
+- SoftAP, Wi-Fi IP, and USB Serial connections to Stack-chan
+- Text and voice conversations
+- StopWatch remote capture with the phone camera
+- Local LLM and VLM conversations
+- llama.cpp OpenCL GPU execution on compatible Qualcomm Adreno devices
+- VLM image preprocessing and streaming chat updates
+- Crashes, heat, and performance differences across Android devices
+
 ## Permissions and Notes
 
 The app may request permissions depending on which features you use.

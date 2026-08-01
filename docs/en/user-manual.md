@@ -1,6 +1,6 @@
 # StackChan Pet Talk User Guide
 
-Last updated: 2026-07-23
+Last updated: 2026-08-01
 
 This guide is for first-time users of `StackChan Pet Talk`. It assumes a
 limited beta build distributed through TestFlight or Google Play closed testing.
@@ -200,6 +200,26 @@ what is in front of you" can start capture and recognition.
 
 When `VLM fallback response` is enabled, the same image is sent to the VLM when
 the master face does not match or no face is found.
+
+### Remotely Taking A Phone Photo From StopWatch
+
+After connecting to a StopWatch with compatible firmware, use the conversation
+screen's image button and choose `StopWatch remote camera`. On first use, allow
+the OS camera and photo-library prompts. Use the switch button in the upper-right
+to select the front or back camera; the app saves that preference.
+
+After closing the setup screen, a blue camera control appears in the upper-right
+of the StopWatch. Tap it to open the saved camera on the phone automatically,
+start a one-second countdown, take a photo, and save it to the photo library.
+The captured photo is also attached automatically to the next text or voice
+message. You can review or remove it from the composer preview before sending.
+Mobile OS restrictions allow the camera screen to open automatically only while
+the phone app is in the foreground.
+
+With compatible firmware, the StopWatch camera control shows `IN` or `OUT` for
+the saved lens. Hold the control for about 0.8 seconds to switch between the
+front and back cameras and save the selection on the phone. A short tap still
+takes a photo.
 
 ### Stack-chan Button And Touch Reactions
 
@@ -527,7 +547,14 @@ conversation history used by the local LLM is adjusted automatically for the
 selected local backend.
 
 For llama.cpp, select a GGUF model file. If you use a vision-capable model,
-select an mmproj file as well. `VLM input image max edge` offers `Original
+select an mmproj file as well. Enable `Preprocess VLM images (KV cache)` to run
+the vision encoder and image-token prefill as soon as an image is selected. If
+the system prompt, history, image, and related settings still match at send
+time, the app restores the saved KV cache and resumes from the typed text.
+Mismatches and restore failures automatically use the normal image path. This
+option is enabled only when llama.cpp is using the GPU and is disabled on CPU.
+
+`VLM input image max edge` offers `Original
 size`, `128px`, `256px`, `384px`, `512px`, `768px`, `1024px`, `1536px`, and
 `2048px`; the default is `2048px`. Images are downscaled while preserving their
 aspect ratio, and images already below the limit are not enlarged. A smaller
@@ -549,8 +576,12 @@ screen. When testing a local LLM from a smartphone, start with Gemma 4 E2B
 - Repository: https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm
 - Direct download: https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm/resolve/main/gemma-4-E2B-it.litertlm
 
-For local LLMs, you can choose CPU or GPU. Android x llama.cpp is CPU only.
-When llama.cpp uses GPU, adjust the GPU layer count. Lower it if Metal crashes.
+For local LLMs, you can choose CPU or GPU. llama.cpp uses Metal on iOS,
+including Metal processing for TQ2_0 quantized models. On Android, the optimized
+OpenCL backend is available on compatible Qualcomm Adreno devices. MediaTek,
+Pixel, and other Android devices fall back to CPU, as does any device where GPU
+initialization fails. When llama.cpp uses GPU, adjust the GPU layer count. Lower
+it if the GPU backend is unstable or runs out of memory.
 
 llama.cpp and LiteRT-LM provide warmup buttons. Use them to confirm that the
 model loads correctly. LiteRT-LM also has `VLM image warmup`, which verifies

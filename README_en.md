@@ -32,6 +32,15 @@ https://play.google.com/store/apps/details?id=app.stackchan.pet.talk
 
 See [Android Beta](docs/en/android-beta.md) for the installation steps.
 
+## Latest Update
+
+Version `1.0.6 (48)` adds StopWatch remote capture with the phone camera,
+local VLM image preprocessing and KV caching, and faster streaming chat
+updates. Compatible Qualcomm Adreno devices can use the OpenCL GPU backend on
+Android, while iOS adds Metal processing support for TQ2_0 quantized models.
+
+See the [Release Notes](docs/en/release-notes.md) for details.
+
 ## Requirements
 
 - A Stack-chan device
@@ -82,6 +91,7 @@ The developer mainly tests with:
 - [Getting Started](docs/en/getting-started.md)
 - [iPhone / TestFlight Beta](docs/en/ios-testflight.md)
 - [Android Beta Instructions](docs/en/android-beta.md)
+- [Release Notes](docs/en/release-notes.md)
 - [Troubleshooting](docs/en/troubleshooting.md)
 - [Full User Guide](docs/en/user-manual.md)
 - [Memories And Diary](docs/en/diary.md)
