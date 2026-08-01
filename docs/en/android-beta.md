@@ -2,27 +2,13 @@
 
 [Back to README](../../README_en.md) | [日本語](../ja/android-beta.md)
 
-The Android beta is distributed through Google Play closed testing.
+The Android beta is distributed through Google Play open testing. A Google
+account is required, but no Google Group membership or individual approval is
+needed.
 
-At this stage, distribution is limited to testers who join the Android beta Google Group.
+## 1. Join the Google Play Open Test
 
-## 1. Join the Google Group
-
-Join the Android beta Google Group first.
-
-```text
-stackchan-pet-talk-android-beta@googlegroups.com
-```
-
-Google Group join link:
-
-https://groups.google.com/g/stackchan-pet-talk-android-beta
-
-Until your group membership is active, the Google Play test link may not allow installation.
-
-## 2. Join the Google Play Test
-
-After joining the Google Group, open the Google Play test opt-in link on your Android phone.
+Open the Google Play test opt-in link on your Android phone.
 
 Google Play test opt-in link:
 
@@ -34,11 +20,15 @@ Google Play store page:
 
 https://play.google.com/store/apps/details?id=app.stackchan.pet.talk
 
-The test opt-in link is used to join the closed test. The store page is used to install the app after joining the test. If the Google account has not joined the Google Group, group membership has not propagated yet, or `Become a tester` has not been tapped, the store page may not be available.
+The test opt-in link joins the open test. In some regions you may be able to
+join directly from the store page. If the store page is unavailable, open the
+test opt-in link first.
 
-It may take some time for group membership and Play access to take effect. If Google Play says the item is not available, wait a while and open the link again.
+Country availability and Play access may take some time to propagate. If
+Google Play says the item is not available, confirm the Google account and
+country in use, wait a while, and open the link again.
 
-## 3. Complete Initial Setup
+## 2. Complete Initial Setup
 
 After installation, follow [Getting Started](getting-started.md) to connect to Stack-chan, configure local LLM, configure Piper Plus TTS, and start a conversation.
 
@@ -56,6 +46,17 @@ The Android version requires:
 Compatible firmware:
 
 https://github.com/Corvelis/stackchan-pet-fw
+
+## What to Test
+
+- Installation and startup
+- SoftAP, Wi-Fi IP, and USB Serial connections to Stack-chan
+- Text and voice conversations
+- StopWatch remote capture with the phone camera
+- Local LLM and VLM conversations
+- llama.cpp OpenCL GPU execution on compatible Qualcomm Adreno devices
+- VLM image preprocessing and streaming chat updates
+- Crashes, heat, and performance differences across Android devices
 
 ## Permissions and Notes
 
@@ -75,4 +76,6 @@ When the Android version is distributed through a Google Play testing track, the
 
 The distributor uses this information only for beta operation, issue investigation, and app improvement. It is not used for unrelated purposes.
 
-Google Play closed testing may not be available immediately depending on Google Group membership, test opt-in status, review, country/region settings, and propagation time.
+Google Play open testing may not be available immediately depending on test
+opt-in status, review, country/region settings, device compatibility, and
+propagation time.

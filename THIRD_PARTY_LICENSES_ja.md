@@ -1,14 +1,14 @@
 # サードパーティライセンスと通知
 
-この文書は、StackChan Pet Talk の限定ベータビルドに含まれる、または利用されるサードパーティソフトウェア、モデル、辞書、ランタイムを記録するものです。
+この文書は、StackChan Pet Talk の公開ベータビルドに含まれる、または利用されるサードパーティソフトウェア、モデル、辞書、ランタイムを記録するものです。
 
 アプリ本体のソースコードは Apache License, Version 2.0 でライセンスされています。`LICENSE` と `NOTICE` を参照してください。
 
 ## 同梱モデル、辞書、ランタイム
 
-限定ベータビルドには、`distribution/model_manifest.yaml` に記載されたファイルが同梱される場合があります。この manifest には、ファイルパス、サイズ、SHA-256、配布元 URL、ライセンス名、同梱ステータスを記録しています。
+公開ベータビルドには、`distribution/model_manifest.yaml` に記載されたファイルが同梱される場合があります。この manifest には、ファイルパス、サイズ、SHA-256、配布元 URL、ライセンス名、同梱ステータスを記録しています。
 
-限定ベータで同梱可としているグループ:
+公開ベータで同梱可としているグループ:
 
 - ReazonSpeech k2 v2 ONNX models: Apache-2.0
 - Silero VAD ONNX model: MIT
@@ -36,6 +36,7 @@ whisper.cpp server 連携は、ユーザーが別途起動した外部サーバ�
 - DKImagePickerController / DKPhotoGallery / SDWebImage / SwiftyGif: MIT
 - AndroidX Concurrent Futures: Apache-2.0
 - llama.cpp / ggml: MIT
+- Khronos OpenCL Headers and ICD Loader link SDK: Apache-2.0
 - nlohmann/json: MIT
 - utf8-cpp: Nemanja Trifunovic による permissive license
 - WORLD: modified BSD
@@ -91,6 +92,14 @@ LiteRT-LM:
 - Source: https://github.com/google-ai-edge/LiteRT-LM
 - License: Apache-2.0
 - Purpose: local LLM runtime
+
+Khronos OpenCL Headers and ICD Loader:
+
+- Source: https://github.com/KhronosGroup/OpenCL-Headers と
+  https://github.com/KhronosGroup/OpenCL-ICD-Loader
+- License: Apache-2.0
+- Purpose: Android llama.cpp OpenCLバックエンドのビルド用ヘッダーおよびリンクSDK。
+  汎用ICD loader本体はAPK/AABに同梱しません。
 
 ONNX Runtime:
 

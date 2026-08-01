@@ -16,11 +16,7 @@ https://testflight.apple.com/join/Tt1Z4xpT
 
 ### Android
 
-Android 版は Google Play のクローズドテストで配布しています。
-
-Googleグループ:
-
-https://groups.google.com/g/stackchan-pet-talk-android-beta
+Android 版は Google Play の公開テストで配布しています。Googleグループへの登録や個別承認は不要です。
 
 テスト参加リンク:
 
@@ -31,6 +27,15 @@ Playストア:
 https://play.google.com/store/apps/details?id=app.stackchan.pet.talk
 
 参加手順は [Android ベータ版について](docs/ja/android-beta.md) を確認してください。
+
+## 最新アップデート
+
+バージョン `1.0.6 (48)` では、StopWatchからのスマートフォンカメラ遠隔撮影、
+ローカルVLMの画像先行処理とKVキャッシュ、会話ストリーミング表示の高速化に
+対応しました。Androidでは対応するQualcomm Adreno端末でOpenCL GPUを利用でき、
+iOSではMetalによるTQ2_0量子化モデルの処理に対応しています。
+
+詳しくは [リリースノート](docs/ja/release-notes.md) を確認してください。
 
 ## 必要なもの
 
@@ -79,6 +84,7 @@ USB Serial は既存の Stack-chan USB プロトコルの SCU1 JSON frame を使
 - [初回セットアップ](docs/ja/getting-started.md)
 - [iPhone / TestFlight 参加方法](docs/ja/ios-testflight.md)
 - [Android ベータ版参加方法](docs/ja/android-beta.md)
+- [リリースノート](docs/ja/release-notes.md)
 - [トラブルシューティング](docs/ja/troubleshooting.md)
 - [詳しい操作手順](docs/ja/user-manual.md)
 - [思い出と日記の使い方](docs/ja/diary.md)

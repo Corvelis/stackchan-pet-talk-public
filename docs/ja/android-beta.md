@@ -2,27 +2,12 @@
 
 [READMEへ戻る](../../README.md) | [English](../en/android-beta.md)
 
-Android 版は Google Play のクローズドテストで配布しています。
+Android 版は Google Play の公開テストで配布しています。
+参加にはGoogleアカウントが必要ですが、Googleグループへの登録や個別の承認は不要です。
 
-現時点では、Googleグループに参加したテスター向けに配布します。
+## 1. Google Playの公開テストに参加する
 
-## 1. Googleグループに参加する
-
-まず、Androidベータ用のGoogleグループに参加してください。
-
-```text
-stackchan-pet-talk-android-beta@googlegroups.com
-```
-
-Googleグループ参加リンク:
-
-https://groups.google.com/g/stackchan-pet-talk-android-beta
-
-参加が承認されるまで、Google Play のテスト参加リンクを開いてもインストールできない場合があります。
-
-## 2. Google Playのテストに参加する
-
-Googleグループに参加したあと、Android端末でGoogle Playのテスト参加リンクを開きます。
+Android端末でGoogle Playのテスト参加リンクを開きます。
 
 Google Play テスト参加リンク:
 
@@ -34,11 +19,11 @@ Playストアのアプリページ:
 
 https://play.google.com/store/apps/details?id=app.stackchan.pet.talk
 
-テスト参加リンクは、クローズドテストに参加するためのオプトインリンクです。Playストアのアプリページは、テスター参加後にインストールするためのリンクです。Googleグループに参加していない、参加承認がまだ反映されていない、または `テスターになる` を押していないGoogleアカウントでは、Playストアのアプリページが利用できない場合があります。
+テスト参加リンクは、公開テストへ参加するためのオプトインリンクです。Playストアのアプリページから直接参加できる場合もありますが、表示されない場合は先にテスト参加リンクを開いてください。
 
-反映に少し時間がかかる場合があります。グループに参加した直後に「このアイテムは利用できません」と表示される場合は、しばらく待ってからもう一度開いてください。
+対象国や公開状態の反映に少し時間がかかる場合があります。「このアイテムは利用できません」と表示される場合は、利用中のGoogleアカウントと対象国を確認し、しばらく待ってからもう一度開いてください。
 
-## 3. 初回セットアップを行う
+## 2. 初回セットアップを行う
 
 インストール後は [初回セットアップ](getting-started.md) に沿って、ｽﾀｯｸﾁｬﾝ本体への接続、ローカルLLM、Piper Plus TTS、会話開始までを確認してください。
 
@@ -65,6 +50,9 @@ https://github.com/Corvelis/stackchan-pet-fw
 - マイクボタンからの音声入力
 - Piper Plus による音声合成
 - LiteRT-LM または llama.cpp によるローカルLLM会話
+- StopWatchからのスマートフォンカメラ遠隔撮影
+- 対応するQualcomm Adreno端末でのllama.cpp OpenCL GPU実行
+- VLM画像先行処理と会話ストリーミング表示
 - モデルファイル選択画面の挙動
 - Android端末ごとのクラッシュ、発熱、動作の重さ
 
@@ -88,4 +76,4 @@ Android 版を Google Play のテストトラックで配布する場合、配�
 
 配布者は、これらの情報をベータテストの運用、不具合調査、改善のためにのみ利用します。不要な目的で利用することはありません。
 
-Google Play のクローズドテストは、Googleグループへの参加、テスト参加リンクでのオプトイン、審査、国/地域設定、反映待ち時間により、すぐに利用できない場合があります。
+Google Play の公開テストは、テスト参加リンクでのオプトイン、審査、国/地域設定、端末互換性、反映待ち時間により、すぐに利用できない場合があります。

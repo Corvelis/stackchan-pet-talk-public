@@ -34,10 +34,9 @@ For iPhone:
 For Android:
 
 1. Open [Android Beta](android-beta.md).
-2. Join the Android beta Google Group.
-3. Open the Google Play test opt-in link.
-4. Tap `Become a tester`.
-5. Install `StackChan Pet Talk` from Google Play.
+2. Open the Google Play open-testing opt-in link.
+3. Tap `Become a tester`.
+4. Install `StackChan Pet Talk` from Google Play.
 
 ## 3. Prepare Stack-chan
 

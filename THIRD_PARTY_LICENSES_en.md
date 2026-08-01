@@ -1,18 +1,18 @@
 # Third-Party Licenses and Notices
 
 This file records third-party software, model, dictionary, and runtime
-components included or used by StackChan Pet Talk limited beta builds.
+components included or used by StackChan Pet Talk public beta builds.
 
 The app source code is licensed under the Apache License, Version 2.0. See
 `LICENSE` and `NOTICE`.
 
 ## Bundled Models, Dictionaries, and Runtimes
 
-The limited beta build may bundle the files listed in
+The public beta build may bundle the files listed in
 `distribution/model_manifest.yaml`. That manifest records file paths, sizes,
 SHA-256 hashes, source URLs, license names, and bundle status.
 
-Approved bundled beta groups:
+Approved public-beta bundled groups:
 
 - ReazonSpeech k2 v2 ONNX models: Apache-2.0
 - Silero VAD ONNX model: MIT
@@ -51,6 +51,7 @@ Known runtime or native dependencies include:
 - DKImagePickerController / DKPhotoGallery / SDWebImage / SwiftyGif: MIT
 - AndroidX Concurrent Futures: Apache-2.0
 - llama.cpp / ggml: MIT
+- Khronos OpenCL Headers and ICD Loader link SDK: Apache-2.0
 - nlohmann/json: MIT
 - utf8-cpp: permissive license by Nemanja Trifunovic
 - WORLD: modified BSD
@@ -106,6 +107,14 @@ LiteRT-LM:
 - Source: https://github.com/google-ai-edge/LiteRT-LM
 - License: Apache-2.0
 - Purpose: local LLM runtime
+
+Khronos OpenCL Headers and ICD Loader:
+
+- Source: https://github.com/KhronosGroup/OpenCL-Headers and
+  https://github.com/KhronosGroup/OpenCL-ICD-Loader
+- License: Apache-2.0
+- Purpose: build-time headers and link SDK for the Android llama.cpp OpenCL
+  backend; the generic ICD loader itself is not bundled in the APK or AAB
 
 ONNX Runtime:
 

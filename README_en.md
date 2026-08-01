@@ -16,11 +16,8 @@ See [iPhone / TestFlight Beta](docs/en/ios-testflight.md) for the installation s
 
 ### Android
 
-The Android beta is distributed through Google Play closed testing.
-
-Google Group:
-
-https://groups.google.com/g/stackchan-pet-talk-android-beta
+The Android beta is distributed through Google Play open testing. No Google
+Group membership or individual approval is required.
 
 Test opt-in link:
 
@@ -31,6 +28,15 @@ Google Play store page:
 https://play.google.com/store/apps/details?id=app.stackchan.pet.talk
 
 See [Android Beta](docs/en/android-beta.md) for the installation steps.
+
+## Latest Update
+
+Version `1.0.6 (48)` adds StopWatch remote capture with the phone camera,
+local VLM image preprocessing and KV caching, and faster streaming chat
+updates. Compatible Qualcomm Adreno devices can use the OpenCL GPU backend on
+Android, while iOS adds Metal processing support for TQ2_0 quantized models.
+
+See the [Release Notes](docs/en/release-notes.md) for details.
 
 ## Requirements
 
@@ -82,6 +88,7 @@ The developer mainly tests with:
 - [Getting Started](docs/en/getting-started.md)
 - [iPhone / TestFlight Beta](docs/en/ios-testflight.md)
 - [Android Beta Instructions](docs/en/android-beta.md)
+- [Release Notes](docs/en/release-notes.md)
 - [Troubleshooting](docs/en/troubleshooting.md)
 - [Full User Guide](docs/en/user-manual.md)
 - [Memories And Diary](docs/en/diary.md)
