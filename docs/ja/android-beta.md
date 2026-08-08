@@ -69,9 +69,15 @@ https://github.com/Corvelis/stackchan-pet-fw
 - 対応するQualcomm Adreno端末でのllama.cpp OpenCL GPU実行
 - VLM画像先行処理と会話ストリーミング表示
 - モデルファイル選択画面の挙動
+- SoftAP 接続を維持したまま、モバイルデータ経由で外部 LLM / ASR / TTS / Hermes API を利用できるか
+- 対応デバイスのストップウォッチ、タイマー、ポモドーロ、ピタリモードの発話と、画面OFF後の通信再開
+- Hermes Agent の接続確認、ツール進捗、会話履歴、画像添付
+- 思考対応モデルでの思考過程の折り畳み表示と、最終回答だけの読み上げ
 - Android端末ごとのクラッシュ、発熱、動作の重さ
 
 開発者は主に Xiaomi 15 Ultra で確認しています。他のAndroid端末での動作フィードバックは特に重要です。
+
+機能別の手順は [時間機能の発話](timekeeper.md) と [Hermes Agent の使い方](hermes-agent.md) を確認してください。
 
 ## 必要な権限や注意点
 

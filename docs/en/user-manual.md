@@ -1,6 +1,6 @@
 # StackChan Pet Talk User Guide
 
-Last updated: 2026-08-01
+Last updated: 2026-08-08
 
 This guide is for first-time users of `StackChan Pet Talk`. It assumes a
 limited beta build distributed through TestFlight or Google Play closed testing.
@@ -12,7 +12,7 @@ Required:
 - Stack-chan hardware
 - A Wi-Fi environment that connects Stack-chan and the phone, or Stack-chan SoftAP
 - Stack-chan-side WebSocket server
-- An LLM for conversation: OpenAI, Gemini, OpenAI compatible API, or a local LLM
+- An LLM for conversation: OpenAI, Gemini, DeepSeek, an OpenAI compatible API, Hermes Agent, or a local LLM
 
 Compatible Stack-chan-side firmware is available from the Releases page:
 
@@ -64,6 +64,9 @@ Main features:
 - Image attachments from the phone camera, photo library, or Stack-chan camera
 - Shared or per-device character settings
 - Stack-chan StreetPass history sync and profile editing
+- Spoken stopwatch, timer, Pomodoro, and exact-time challenge events from compatible devices
+- Hermes Agent conversation, tool progress, and server-side conversation history
+- Separate collapsible reasoning and final-answer display for compatible LLMs
 - Memory logs and diary generation. See [Memories And Diary](diary.md) for details.
 
 ## 2. Installation
@@ -99,6 +102,8 @@ separate for each connected device.
 3. Select `SoftAP` in the app.
 4. Host is usually `192.168.4.1`; Port is usually `8080`.
 5. Tap `Connect`.
+
+On supported phones, the app keeps local Stack-chan traffic on Wi-Fi during a SoftAP connection and attempts to route public Internet API traffic over mobile data. External APIs may not work when mobile data is disabled or restricted by the phone or carrier. LAN, VPN, and Tailscale destinations use the normal network route.
 
 ### Wi-Fi IP
 
@@ -169,6 +174,8 @@ and other status information, giving the conversation history more space.
 The status area also shows the active LLM model. Cloud providers such as Gemini
 and OpenAI use a name such as `Gemini 3.6 Flash`, while local LLMs show the model
 file name.
+
+For compatible models that return reasoning, each Stack-chan bubble can show a collapsible `Thinking` panel. It can be opened or hidden while the model is still working. Only the final answer is spoken, saved to memories, or passed back to the LLM as the assistant response on later turns; reasoning is not spoken.
 
 To clear the conversation history, tap the delete button next to the history
 heading.
@@ -515,6 +522,8 @@ Providers:
 - OpenAI compatible API
 - OpenAI API
 - Gemini API
+- DeepSeek V4 Flash
+- Hermes Agent
 - llama.cpp
 - LiteRT-LM
 
@@ -529,6 +538,10 @@ model ID that is not in the list.
 For Gemini API, you can select Gemini 3.6 Flash, Gemini 3.5 Flash, Gemini 3.5
 Flash-Lite, Gemini 3.1 Flash-Lite, and Gemini 3 Flash Preview. Compatible
 models let you choose the thinking level from minimal, low, medium, or high.
+
+DeepSeek V4 Flash uses the official API and its own API key. Thinking mode can delay the start of the answer. Reasoning is shown in a collapsible panel, while only the final answer is spoken.
+
+Hermes Agent uses a user-provided server URL and API key. `Hermes 接続確認` (`Hermes connection check`) reports Sessions, SSE, Skills, Agent Memory, tool progress, and diary-generation support. See [Using Hermes Agent](hermes-agent.md) for setup and privacy details.
 
 Set Base URL to the PC LAN IP, for example `http://192.168.0.10:8080/v1`.
 
@@ -674,7 +687,15 @@ data from compatible firmware.
 Master-found voice lines are edited from
 `Settings > Master recognition > Master found reactions`.
 
-## 11. Background Conversation
+## 11. Time Announcements
+
+With a compatible device, open `Settings > Stopwatch speech` to configure spoken stopwatch, timer, Pomodoro, and exact-time challenge events.
+
+You can change speech amount, millisecond reading, phrase repetition, per-character phrases, and Pomodoro work and break durations. Time announcements use the same TTS as normal conversation but are not added to conversation history or memories.
+
+See [Time Announcements](timekeeper.md) for required capabilities, settings, and display-off behavior.
+
+## 12. Background Conversation
 
 On Android, use the phone icon at the top of the conversation screen to enable
 background conversation.
@@ -686,7 +707,7 @@ the app from battery optimization if needed.
 To stop background conversation, tap the same button again or stop it from the
 notification.
 
-## 12. Memories And Diary
+## 13. Memories And Diary
 
 Use the `Memories` icon on the conversation screen to review logs, photos, and
 diaries by date.
@@ -703,7 +724,7 @@ pre-summary behavior, and diary prompts.
 
 See [Memories And Diary](diary.md) for detailed usage.
 
-## 13. Debug
+## 14. Debug
 
 Open `Settings > Debug` to temporarily change affection for the current
 session.
@@ -718,22 +739,24 @@ in normal distribution builds.
 
 This is for behavior checks. Normal users do not need to change it.
 
-## 14. Licenses
+## 15. Licenses
 
 Open `Settings > Licenses` to view bundled license and NOTICE information.
 
-## 15. Privacy
+## 16. Privacy
 
-If you configure external APIs such as OpenAI API, an OpenAI compatible API, or
-Gemini API, texts, recognition results, images, or parts of conversation history
-may be sent to those external services.
+If you configure external APIs such as OpenAI API, an OpenAI compatible API,
+Gemini API, DeepSeek API, or Hermes Agent, texts, recognition results, images,
+or parts of conversation history may be sent to those external services. Hermes
+skills, tools, Agent Memory, and server-side conversation history follow the
+configuration and policy of the server you choose.
 
 See:
 
 - [PRIVACY_en.md](../../PRIVACY_en.md)
 - [THIRD_PARTY_LICENSES_en.md](../../THIRD_PARTY_LICENSES_en.md)
 
-## 16. Troubleshooting
+## 17. Troubleshooting
 
 Cannot connect:
 

@@ -224,6 +224,9 @@ iPhone では、変換済みの Style-Bert-VITS2 モデルを端末内で実行�
 
 詳しい画面説明、音声AI、LLM、キャラクター設定、マスター認識などは [詳しい操作手順](user-manual.md) にまとめています。
 
+- 対応デバイスのストップウォッチやポモドーロを読み上げる場合: [時間機能の発話](timekeeper.md)
+- Hermes API サーバーを会話に使う場合: [Hermes Agent の使い方](hermes-agent.md)
+
 ## 9. 困ったとき
 
 接続できない、会話できない、音が出ない場合は [トラブルシューティング](troubleshooting.md) を確認してください。
