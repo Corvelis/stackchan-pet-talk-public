@@ -57,16 +57,22 @@ Compatible firmware:
 
 https://github.com/Corvelis/stackchan-pet-fw
 
-## What to Test
+## What To Test On Android
 
-- Installation and startup
-- SoftAP, Wi-Fi IP, and USB Serial connections to Stack-chan
-- Text and voice conversations
+- App installation and launch
+- SoftAP / Wi-Fi IP / USB Serial connection to Stack-chan
+- Text conversation, voice input, and TTS output
 - StopWatch remote capture with the phone camera
-- Local LLM and VLM conversations
+- Local LLM and VLM conversation with LiteRT-LM or llama.cpp
 - llama.cpp OpenCL GPU execution on compatible Qualcomm Adreno devices
 - VLM image preprocessing and streaming chat updates
+- Whether external LLM, ASR, TTS, and Hermes APIs work over mobile data while the app keeps its SoftAP connection to Stack-chan
+- Stopwatch, timer, Pomodoro, and exact-time challenge announcements on a compatible device, including recovery after display-off
+- Hermes Agent connection checks, tool progress, conversation history, and image attachments
+- Reasoning display for compatible models and final-answer-only speech
 - Crashes, heat, and performance differences across Android devices
+
+The developer mainly tests with a Xiaomi 15 Ultra, so reports from other Android devices are especially useful. See [Time Announcements](timekeeper.md) and [Using Hermes Agent](hermes-agent.md) for feature-specific instructions.
 
 ## Permissions and Notes
 

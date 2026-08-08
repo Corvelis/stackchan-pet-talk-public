@@ -224,6 +224,9 @@ Voice conversation requires both app-side voice settings and Stack-chan-side mic
 
 Detailed screen descriptions, Voice AI, LLM, character settings, and master recognition are covered in the [Full User Guide](user-manual.md).
 
+- To speak stopwatch and Pomodoro events from compatible devices: [Time Announcements](timekeeper.md)
+- To use a Hermes API server for conversation: [Using Hermes Agent](hermes-agent.md)
+
 ## 9. If Something Does Not Work
 
 If connection, conversation, or audio does not work, see [Troubleshooting](troubleshooting.md).

@@ -18,6 +18,25 @@
 - For local LLM, make sure a model file is selected.
 - Make sure the Stack-chan-side WebSocket server is running.
 
+## External APIs Fail Only During SoftAP
+
+- Make sure mobile data is enabled on the phone.
+- Make sure the OS allows `StackChan Pet Talk` to use mobile data.
+- Isolate carrier restrictions, VPN, Private Relay, and firewall settings.
+- LAN, VPN, Tailscale, and private-IP servers are not forced onto mobile data. Confirm that the phone has a route to that destination.
+- External API use may consume mobile data.
+
+## Hermes Agent Does Not Connect
+
+- Review the results under `Settings > LLM > Hermes 接続確認` (`Hermes connection check`).
+- Enter the Hermes base URL without an individual API path such as `/api/sessions`.
+- Check the API key, server `/health`, TLS certificate, and firewall.
+- Conversation requires `Sessions` and `SSE`; diary generation requires streaming Chat Completions.
+- If only `Hermes Agent Memory` reports a failed check, inspect the toolsets API and memory toolset configuration.
+- Hermes rejects images larger than 2 MB. Resize the image before attaching it.
+
+See [Using Hermes Agent](hermes-agent.md) for details.
+
 ## Local LLM Does Not Load
 
 - For LiteRT-LM, select a `.litertlm` file. For llama.cpp, select a `.gguf` file.
@@ -56,6 +75,17 @@
 - Shake reactions run when the app receives a compatible `shake` or `start` event.
 - Speech bubbles appear only when the device supports `display.speech_bubble.v1`.
 - After switching between `Shared` and `Per device` character mode, make sure you are editing the character for the current connection target.
+
+## Stopwatch or Pomodoro Is Not Spoken
+
+- Enable `Settings > Stopwatch speech > Time announcements` and configure TTS.
+- Confirm that the connected device reports `timekeeper.v1`.
+- Pomodoro configuration requires `timekeeper.pomodoro.v1`.
+- If `Speech amount` is `Quiet`, also test `Standard` or `Lively`.
+- After waking the device display, wait for the connection state to recover.
+- Duplicate event delivery may be suppressed and not spoken again.
+
+See [Time Announcements](timekeeper.md) for details.
 
 ## Useful Feedback Details
 

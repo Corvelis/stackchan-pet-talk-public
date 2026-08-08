@@ -29,7 +29,17 @@ Permissions that may be used:
 
 Follow [Getting Started](getting-started.md) to connect to the Stack-chan device.
 
-## 6. TestFlight Notes
+## 6. What To Test In The New Beta
+
+- Whether external LLM, ASR, TTS, and Hermes APIs work over mobile data while the app keeps its SoftAP connection to Stack-chan
+- Whether stopwatch, timer, Pomodoro, and exact-time challenge announcements on a compatible device play once and at the expected time
+- Whether communication resumes correctly after waking a compatible device from display-off state
+- Hermes Agent connection checks, tool progress, conversation history, and image attachments
+- Whether a reasoning-capable model shows reasoning in a collapsible panel and speaks only the final answer
+
+See [Time Announcements](timekeeper.md) and [Using Hermes Agent](hermes-agent.md) for feature-specific instructions.
+
+## 7. TestFlight Notes
 
 TestFlight is Apple's beta distribution system. This is not a production release, so bugs, crashes, behavior changes, and beta expiration may occur.
 

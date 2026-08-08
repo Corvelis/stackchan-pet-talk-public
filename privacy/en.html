@@ -37,6 +37,8 @@ External providers currently exposed by settings include:
 - OpenAI compatible LLM API
 - OpenAI LLM API
 - Gemini API
+- DeepSeek API
+- User-configured Hermes Agent API server
 - OpenAI transcription APIs
 - OpenAI TTS API
 - Irodori TTS server
@@ -46,6 +48,17 @@ those providers' terms and privacy policies.
 When an Irodori TTS server is used, the app sends text to synthesize, the
 selected voice name, and optionally uploaded reference audio to the configured
 server.
+
+When Hermes Agent is used, text, prompts, conversation context, images, and
+session information may be sent to the configured Hermes server. The server may
+store conversation sessions, messages, and tool execution details. Depending on
+its configuration, skills and tools may contact other services or save
+information in Agent Memory. Review the server operator's policy for retention,
+deletion, and administrative access.
+
+On supported phones using Stack-chan SoftAP, local Stack-chan traffic remains on
+Wi-Fi while external APIs on the public Internet may use mobile data. Carrier
+data charges may apply.
 
 ## Camera and Microphone
 
@@ -97,6 +110,12 @@ regenerating a diary.
 
 The app also stores settings for providers, prompts, recognition thresholds,
 and model paths. API keys are stored through secure storage where supported.
+
+The Hermes Agent history screen retrieves sessions and messages stored on the
+configured Hermes server. Time announcements are not added to conversation
+history, memories, or diary material. Reasoning from compatible LLMs is shown
+separately from the final answer; only the final answer is used for TTS and
+memories.
 
 ## Bundled Models
 

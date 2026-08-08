@@ -79,6 +79,13 @@ Profile text limits are UTF-8 byte limits:
 For Japanese text, this is roughly 10 characters for the name and 26 characters
 for the message.
 
+## New Beta Features
+
+- Compatible StopWatch and Stack-chan stopwatch, timer, Pomodoro, and exact-time challenge events can be spoken with the configured character voice. See [Time Announcements](docs/en/timekeeper.md).
+- A user-provided Hermes API server can be used as the conversation agent, with capability checks, tool progress, and server-side conversation history. See [Using Hermes Agent](docs/en/hermes-agent.md).
+- For compatible LLMs such as DeepSeek V4 Flash that return reasoning, the app separates reasoning from the final answer in a collapsible panel. Only the final answer is spoken or saved to memories.
+- During SoftAP connections on supported phones, local Stack-chan traffic remains on Wi-Fi while public Internet API traffic is attempted over mobile data.
+
 ## Developer Test Devices
 
 The developer mainly tests with:
@@ -95,12 +102,16 @@ The developer mainly tests with:
 - [Troubleshooting](docs/en/troubleshooting.md)
 - [Full User Guide](docs/en/user-manual.md)
 - [Memories And Diary](docs/en/diary.md)
+- [Time Announcements](docs/en/timekeeper.md)
+- [Using Hermes Agent](docs/en/hermes-agent.md)
 
 ## Notes
 
 The main features require a Stack-chan device on the same local network. Without the device, the app cannot proceed to the main conversation screen.
 
 If you configure an external API provider, conversation text, prompts, audio transcription input, and optional image input may be sent to that provider.
+
+External APIs used while connected through SoftAP may consume mobile data. Hermes Agent skills, tools, Agent Memory, and conversation history are governed by the configuration and policy of the server you choose.
 
 Piper Plus voice models have model-specific terms. Tsukuyomi-chan voice models can also be used when prepared by the user, but generated voice has prohibited uses. See [Voice Model Usage Notes](docs/en/voice-model-terms.md).
 
